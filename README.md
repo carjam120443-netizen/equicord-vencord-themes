@@ -10,6 +10,8 @@ A collection of custom CSS themes for Equicord and Vencord Discord clients.
 | [Aero Reborn](themes/aero-reborn.css) | Glossy blue glass inspired by classic desktop UI |
 | [Cyberpunk Night](themes/cyberpunk-night.css) | Neon cyan/pink cyberpunk grid |
 | [Forest Terminal](themes/forest-terminal.css) | Dark green terminal / hacker aesthetic |
+| [GRUB Linux](themes/grub-linux.css) | Monochrome GRUB boot menu / Linux console aesthetic |
+| [Vista Aero](themes/vista-aero.css) | Windows Vista Aero glass, blue chrome, and glossy highlights |
 
 ## Install
 
