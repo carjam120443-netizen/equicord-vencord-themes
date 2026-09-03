@@ -1,0 +1,53 @@
+/* Forest Terminal — Equicord / Vencord theme */
+/* CRT-ish hacker terminal atmosphere, kept readable for daily Discord use. */
+
+:root {
+  --ft-bg: #07100b;
+  --ft-panel: rgba(7, 18, 11, .92);
+  --ft-green: #7dff9a;
+  --ft-green-2: #2ee66b;
+  --ft-line: rgba(125,255,154,.13);
+}
+
+body, #app-mount {
+  background: radial-gradient(circle at 50% 0%, rgba(46,230,107,.08), transparent 35%), var(--ft-bg) !important;
+}
+
+[class*="sidebar"], [class*="panels"], [class*="chat"], [class*="membersWrap"] {
+  background: var(--ft-panel) !important;
+  border-color: var(--ft-line) !important;
+}
+
+[class*="channel"]:hover {
+  background: rgba(125,255,154,.055) !important;
+}
+
+[class*="modeSelected"] {
+  background: rgba(46,230,107,.11) !important;
+  box-shadow: inset 2px 0 var(--ft-green-2);
+}
+
+button[class*="lookFilled"] {
+  background: var(--ft-green-2) !important;
+  color: #031007 !important;
+  font-weight: 700;
+}
+
+textarea, input, [class*="channelTextArea"] {
+  background: rgba(2,8,4,.82) !important;
+  border: 1px solid var(--ft-line) !important;
+  box-shadow: inset 0 0 14px rgba(46,230,107,.035);
+}
+
+[class*="message"]:hover {
+  background: rgba(125,255,154,.022) !important;
+}
+
+[class*="mention"], [class*="newMessagesBar"] {
+  border-color: var(--ft-green) !important;
+}
+
+::selection {
+  background: var(--ft-green);
+  color: #031007;
+}
