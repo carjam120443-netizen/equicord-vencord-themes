@@ -1,0 +1,382 @@
+/*
+ * Windows 11 — Equicord / Vencord theme
+ * Fluent-inspired Discord UI with Mica surfaces, soft blue accents,
+ * rounded controls, subtle depth, and Windows 11-style interaction states.
+ */
+
+:root {
+  --win11-bg: #202020;
+  --win11-mica: rgba(32, 32, 32, .82);
+  --win11-mica-strong: rgba(38, 38, 38, .94);
+  --win11-surface: rgba(255, 255, 255, .055);
+  --win11-surface-hover: rgba(255, 255, 255, .085);
+  --win11-surface-active: rgba(255, 255, 255, .12);
+  --win11-border: rgba(255, 255, 255, .075);
+  --win11-border-strong: rgba(255, 255, 255, .13);
+  --win11-blue: #60cdff;
+  --win11-blue-dark: #0078d4;
+  --win11-blue-soft: rgba(96, 205, 255, .16);
+  --win11-text: #f5f5f5;
+  --win11-muted: #bdbdbd;
+  --win11-shadow: rgba(0, 0, 0, .32);
+}
+
+/* Discord color variables */
+.theme-dark,
+.theme-darker,
+.theme-midnight {
+  --background-primary: #202020;
+  --background-secondary: #1b1b1b;
+  --background-secondary-alt: #252525;
+  --background-tertiary: #151515;
+  --background-floating: #2b2b2b;
+  --channeltextarea-background: #191919;
+  --text-normal: var(--win11-text);
+  --text-muted: var(--win11-muted);
+  --header-primary: #ffffff;
+  --header-secondary: #cfcfcf;
+  --interactive-normal: #dddddd;
+  --interactive-hover: #ffffff;
+  --interactive-active: var(--win11-blue);
+}
+
+/* Mica-like desktop background */
+html,
+body,
+#app-mount {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(96, 205, 255, .13), transparent 30%),
+    radial-gradient(circle at 88% 100%, rgba(76, 110, 245, .09), transparent 34%),
+    linear-gradient(145deg, #151515 0%, #242424 48%, #1b1b1b 100%) !important;
+  color: var(--win11-text) !important;
+}
+
+/* Fluent/Mica major surfaces */
+[class*="guilds"],
+[class*="sidebar"],
+[class*="membersWrap"],
+[class*="chat"],
+[class*="chatContent"],
+[class*="panels"],
+[class*="container"],
+[class*="contentRegion"],
+[class*="contentRegionScroller"] {
+  background: var(--win11-mica) !important;
+  border-color: var(--win11-border) !important;
+  backdrop-filter: blur(24px) saturate(125%);
+  -webkit-backdrop-filter: blur(24px) saturate(125%);
+}
+
+[class*="sidebar"] {
+  border-right: 1px solid var(--win11-border) !important;
+}
+
+[class*="membersWrap"] {
+  border-left: 1px solid var(--win11-border) !important;
+}
+
+/* Windows 11 rounded geometry */
+[class*="container"],
+[class*="menu"],
+[class*="popout"],
+[class*="modal"],
+[class*="card"],
+[class*="form"] {
+  border-radius: 10px !important;
+}
+
+/* Top app/channel chrome */
+[class*="titleBar"],
+[class*="title"],
+[class*="header"] {
+  background: linear-gradient(180deg, rgba(255,255,255,.065), rgba(255,255,255,.025)) !important;
+  border-bottom: 1px solid var(--win11-border) !important;
+  box-shadow: 0 1px 0 rgba(0,0,0,.18) !important;
+}
+
+/* Server rail */
+[class*="guilds"] {
+  background: rgba(20, 20, 20, .72) !important;
+}
+
+[class*="guilds"] [class*="wrapper"] > * {
+  border-radius: 8px !important;
+  transition: border-radius 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+}
+
+[class*="guilds"] [class*="wrapper"] > *:hover {
+  border-radius: 10px !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--win11-shadow) !important;
+}
+
+[class*="guilds"] [class*="itemSelected"] {
+  background: var(--win11-blue-soft) !important;
+}
+
+/* Channel navigation */
+[class*="modeDefault"],
+[class*="clickable"],
+[class*="channel"] {
+  border-radius: 6px !important;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+[class*="modeDefault"]:hover,
+[class*="clickable"]:hover,
+[class*="channel"]:hover {
+  background: var(--win11-surface-hover) !important;
+}
+
+[class*="modeSelected"],
+[class*="itemSelected"] {
+  background: linear-gradient(90deg, rgba(96,205,255,.17), rgba(96,205,255,.08)) !important;
+  border-left: 3px solid var(--win11-blue) !important;
+  border-radius: 6px !important;
+  box-shadow: inset 0 0 0 1px rgba(96,205,255,.07) !important;
+}
+
+/* Unread indicators */
+[class*="unread"] {
+  background-color: var(--win11-blue) !important;
+}
+
+[class*="wrapper"] [class*="unread"] {
+  box-shadow: 0 0 7px rgba(96,205,255,.38);
+}
+
+/* Message rows */
+[class*="message"] {
+  border-radius: 6px !important;
+  transition: background 120ms ease;
+}
+
+[class*="message"]:hover {
+  background: rgba(255,255,255,.035) !important;
+}
+
+[class*="message"] [class*="username"] {
+  color: #ffffff !important;
+}
+
+/* Reply / mention / highlighted message states */
+[class*="replying"],
+[class*="mentioned"] {
+  background: rgba(96,205,255,.065) !important;
+  box-shadow: inset 3px 0 var(--win11-blue) !important;
+}
+
+[class*="mentioned"]::before {
+  background: var(--win11-blue) !important;
+}
+
+/* Reactions */
+[class*="reaction"] {
+  background: rgba(255,255,255,.055) !important;
+  border: 1px solid var(--win11-border) !important;
+  border-radius: 7px !important;
+}
+
+[class*="reaction"]:hover {
+  background: var(--win11-blue-soft) !important;
+  border-color: rgba(96,205,255,.35) !important;
+}
+
+/* Composer */
+[class*="channelTextArea"] {
+  background: rgba(28,28,28,.90) !important;
+  border: 1px solid var(--win11-border-strong) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,.18), inset 0 1px rgba(255,255,255,.035) !important;
+}
+
+[class*="channelTextArea"]:focus-within {
+  border-color: rgba(96,205,255,.65) !important;
+  box-shadow: 0 0 0 1px rgba(96,205,255,.22), 0 5px 18px rgba(0,0,0,.2) !important;
+}
+
+textarea,
+input {
+  color: var(--win11-text) !important;
+  background: rgba(20,20,20,.72) !important;
+  border: 1px solid var(--win11-border-strong) !important;
+  border-radius: 7px !important;
+}
+
+textarea:focus,
+input:focus {
+  border-color: rgba(96,205,255,.7) !important;
+  box-shadow: 0 0 0 2px rgba(96,205,255,.13) !important;
+}
+
+/* Fluent buttons */
+button,
+[class*="button"] {
+  border-radius: 6px !important;
+  transition: background 120ms ease, box-shadow 120ms ease, transform 120ms ease;
+}
+
+button[class*="lookFilled"] {
+  background: var(--win11-blue-dark) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,.24) !important;
+}
+
+button[class*="lookFilled"]:hover {
+  background: #1683d8 !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,.28) !important;
+}
+
+button:active,
+[class*="button"]:active {
+  transform: scale(.985);
+}
+
+/* Icon buttons */
+[class*="iconButton"]:hover,
+[class*="button"]:hover {
+  background-color: var(--win11-surface-hover) !important;
+}
+
+/* Search */
+[class*="search"] [class*="searchBar"],
+[class*="searchBar"] {
+  background: rgba(255,255,255,.055) !important;
+  border: 1px solid var(--win11-border) !important;
+  border-radius: 7px !important;
+}
+
+[class*="searchBar"]:focus-within {
+  border-color: rgba(96,205,255,.55) !important;
+}
+
+/* Menus, popouts and context menus */
+[class*="menu"],
+[class*="popout"] {
+  background: var(--win11-mica-strong) !important;
+  border: 1px solid var(--win11-border-strong) !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,.42) !important;
+  backdrop-filter: blur(28px) saturate(130%);
+}
+
+[class*="menuItem"],
+[class*="item"] {
+  border-radius: 6px !important;
+}
+
+[class*="menuItem"]:hover,
+[class*="item"]:hover {
+  background: var(--win11-surface-hover) !important;
+}
+
+[class*="menuItem"]:active {
+  background: var(--win11-blue-soft) !important;
+}
+
+/* Modals / dialogs */
+[class*="modal"] {
+  background: rgba(36,36,36,.96) !important;
+  border: 1px solid var(--win11-border-strong) !important;
+  box-shadow: 0 18px 45px rgba(0,0,0,.48) !important;
+}
+
+[class*="backdrop"] {
+  background: rgba(0,0,0,.48) !important;
+  backdrop-filter: blur(4px);
+}
+
+/* Tooltips */
+[class*="tooltip"] {
+  background: #2b2b2b !important;
+  color: #fff !important;
+  border: 1px solid var(--win11-border-strong) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 7px 18px rgba(0,0,0,.35) !important;
+}
+
+/* Embeds */
+[class*="embedFull"] {
+  background: rgba(255,255,255,.035) !important;
+  border-left: 3px solid var(--win11-blue) !important;
+  border-radius: 7px !important;
+}
+
+/* Attachments / cards */
+[class*="attachment"],
+[class*="wrapperAudio"],
+[class*="fileWrapper"] {
+  background: rgba(255,255,255,.045) !important;
+  border: 1px solid var(--win11-border) !important;
+  border-radius: 8px !important;
+}
+
+/* Code blocks */
+code,
+[class*="codeBlock"] {
+  background: #151515 !important;
+  border: 1px solid var(--win11-border) !important;
+  border-radius: 7px !important;
+}
+
+/* Mentions and new-message bars */
+[class*="mention"],
+[class*="newMessagesBar"] {
+  background: linear-gradient(90deg, rgba(0,120,212,.92), rgba(96,205,255,.76)) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,.16) !important;
+  border-radius: 7px !important;
+  box-shadow: 0 5px 14px rgba(0,0,0,.24) !important;
+}
+
+/* User/account panel */
+[class*="panels"] {
+  background: rgba(27,27,27,.88) !important;
+  border-top: 1px solid var(--win11-border) !important;
+}
+
+/* Status / badges */
+[class*="numberBadge"],
+[class*="mentionBadge"] {
+  background: var(--win11-blue-dark) !important;
+}
+
+/* Dividers */
+hr,
+[class*="divider"] {
+  border-color: var(--win11-border) !important;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 10px !important;
+  height: 10px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,.18) !important;
+  border: 2px solid transparent !important;
+  background-clip: padding-box !important;
+  border-radius: 8px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,.28) !important;
+  background-clip: padding-box !important;
+}
+
+/* Focus / accessibility states */
+*:focus-visible {
+  outline: 2px solid var(--win11-blue) !important;
+  outline-offset: 2px !important;
+}
+
+/* Text selection */
+::selection {
+  background: rgba(96,205,255,.48) !important;
+  color: #fff !important;
+}
