@@ -1,0 +1,379 @@
+/*
+ * macOS — Equicord / Vencord theme
+ * Modern macOS-inspired Discord UI with vibrancy, soft graphite surfaces,
+ * restrained blue accents, native-looking spacing, and subtle depth.
+ */
+
+:root {
+  --mac-bg: #1e1e1e;
+  --mac-surface: rgba(44, 44, 46, .82);
+  --mac-surface-strong: rgba(38, 38, 40, .95);
+  --mac-surface-soft: rgba(255, 255, 255, .055);
+  --mac-surface-hover: rgba(255, 255, 255, .085);
+  --mac-surface-active: rgba(255, 255, 255, .12);
+  --mac-border: rgba(255, 255, 255, .09);
+  --mac-border-strong: rgba(255, 255, 255, .15);
+  --mac-blue: #0a84ff;
+  --mac-blue-soft: rgba(10, 132, 255, .18);
+  --mac-text: #f5f5f7;
+  --mac-muted: #a1a1a6;
+  --mac-shadow: rgba(0, 0, 0, .34);
+}
+
+/* Discord color variables */
+.theme-dark,
+.theme-darker,
+.theme-midnight {
+  --background-primary: #1e1e20;
+  --background-secondary: #19191b;
+  --background-secondary-alt: #242426;
+  --background-tertiary: #151517;
+  --background-floating: #2c2c2e;
+  --channeltextarea-background: #29292b;
+  --text-normal: var(--mac-text);
+  --text-muted: var(--mac-muted);
+  --header-primary: #f5f5f7;
+  --header-secondary: #b8b8bd;
+  --interactive-normal: #d1d1d6;
+  --interactive-hover: #ffffff;
+  --interactive-active: var(--mac-blue);
+}
+
+/* macOS-style vibrancy background */
+html,
+body,
+#app-mount {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(255,255,255,.055), transparent 30%),
+    radial-gradient(circle at 85% 100%, rgba(10,132,255,.055), transparent 34%),
+    linear-gradient(145deg, #171719 0%, #222224 52%, #1b1b1d 100%) !important;
+  color: var(--mac-text) !important;
+}
+
+/* Vibrancy-inspired major surfaces */
+[class*="guilds"],
+[class*="sidebar"],
+[class*="membersWrap"],
+[class*="chat"],
+[class*="chatContent"],
+[class*="panels"],
+[class*="contentRegion"],
+[class*="contentRegionScroller"] {
+  background: var(--mac-surface) !important;
+  border-color: var(--mac-border) !important;
+  backdrop-filter: blur(26px) saturate(125%);
+  -webkit-backdrop-filter: blur(26px) saturate(125%);
+}
+
+[class*="sidebar"] {
+  border-right: 1px solid var(--mac-border) !important;
+}
+
+[class*="membersWrap"] {
+  border-left: 1px solid var(--mac-border) !important;
+}
+
+/* macOS geometry: rounded, but not excessively pill-shaped */
+[class*="menu"],
+[class*="popout"],
+[class*="modal"],
+[class*="card"],
+[class*="form"],
+[class*="container"] {
+  border-radius: 10px !important;
+}
+
+/* App/channel chrome */
+[class*="titleBar"] {
+  background: rgba(30,30,32,.78) !important;
+  border-bottom: 1px solid var(--mac-border) !important;
+}
+
+[class*="title"],
+[class*="header"] {
+  background: rgba(44,44,46,.54) !important;
+  border-bottom: 1px solid var(--mac-border) !important;
+  box-shadow: 0 1px 0 rgba(0,0,0,.12) !important;
+}
+
+/* Server rail */
+[class*="guilds"] {
+  background: rgba(24,24,26,.76) !important;
+}
+
+[class*="guilds"] [class*="wrapper"] > * {
+  border-radius: 10px !important;
+  transition: transform 150ms ease, border-radius 150ms ease, background 150ms ease;
+}
+
+[class*="guilds"] [class*="wrapper"] > *:hover {
+  background: var(--mac-surface-hover) !important;
+  transform: translateY(-1px);
+}
+
+[class*="guilds"] [class*="itemSelected"] {
+  background: var(--mac-blue-soft) !important;
+}
+
+/* Channel navigation */
+[class*="modeDefault"],
+[class*="clickable"],
+[class*="channel"] {
+  border-radius: 7px !important;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+[class*="modeDefault"]:hover,
+[class*="clickable"]:hover,
+[class*="channel"]:hover {
+  background: var(--mac-surface-hover) !important;
+}
+
+[class*="modeSelected"] {
+  background: var(--mac-surface-active) !important;
+  box-shadow: inset 2px 0 var(--mac-blue) !important;
+  border-radius: 7px !important;
+}
+
+/* Unread indicators */
+[class*="unread"] {
+  background: var(--mac-blue) !important;
+}
+
+[class*="wrapper"] [class*="unread"] {
+  box-shadow: 0 0 6px rgba(10,132,255,.35);
+}
+
+/* Messages */
+[class*="message"] {
+  border-radius: 7px !important;
+  transition: background 120ms ease;
+}
+
+[class*="message"]:hover {
+  background: rgba(255,255,255,.028) !important;
+}
+
+[class*="message"] [class*="username"] {
+  color: #f5f5f7 !important;
+}
+
+[class*="replying"],
+[class*="mentioned"] {
+  background: rgba(10,132,255,.075) !important;
+  box-shadow: inset 3px 0 var(--mac-blue) !important;
+}
+
+[class*="mentioned"]::before {
+  background: var(--mac-blue) !important;
+}
+
+/* Reactions */
+[class*="reaction"] {
+  background: rgba(255,255,255,.055) !important;
+  border: 1px solid var(--mac-border) !important;
+  border-radius: 8px !important;
+}
+
+[class*="reaction"]:hover {
+  background: var(--mac-blue-soft) !important;
+  border-color: rgba(10,132,255,.35) !important;
+}
+
+/* Composer — floating macOS-style input surface */
+[class*="channelTextArea"] {
+  background: rgba(42,42,44,.92) !important;
+  border: 1px solid var(--mac-border-strong) !important;
+  border-radius: 11px !important;
+  box-shadow: 0 4px 18px rgba(0,0,0,.18), inset 0 1px rgba(255,255,255,.035) !important;
+}
+
+[class*="channelTextArea"]:focus-within {
+  border-color: rgba(10,132,255,.65) !important;
+  box-shadow: 0 0 0 1px rgba(10,132,255,.18), 0 5px 20px rgba(0,0,0,.2) !important;
+}
+
+textarea,
+input {
+  color: var(--mac-text) !important;
+  background: rgba(28,28,30,.72) !important;
+  border: 1px solid var(--mac-border) !important;
+  border-radius: 8px !important;
+}
+
+textarea:focus,
+input:focus {
+  border-color: rgba(10,132,255,.65) !important;
+  box-shadow: 0 0 0 2px rgba(10,132,255,.13) !important;
+}
+
+/* macOS-like controls */
+button,
+[class*="button"] {
+  border-radius: 7px !important;
+  transition: background 120ms ease, box-shadow 120ms ease, transform 120ms ease;
+}
+
+button[class*="lookFilled"] {
+  background: var(--mac-blue) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  box-shadow: 0 2px 7px rgba(0,0,0,.2) !important;
+}
+
+button[class*="lookFilled"]:hover {
+  background: #2494ff !important;
+  box-shadow: 0 4px 11px rgba(0,0,0,.24) !important;
+}
+
+button:active,
+[class*="button"]:active {
+  transform: scale(.985);
+}
+
+[class*="iconButton"]:hover {
+  background: var(--mac-surface-hover) !important;
+}
+
+/* Search field */
+[class*="search"] [class*="searchBar"],
+[class*="searchBar"] {
+  background: rgba(255,255,255,.055) !important;
+  border: 1px solid var(--mac-border) !important;
+  border-radius: 8px !important;
+}
+
+[class*="searchBar"]:focus-within {
+  background: rgba(255,255,255,.075) !important;
+  border-color: rgba(10,132,255,.48) !important;
+}
+
+/* Menus / popouts */
+[class*="menu"],
+[class*="popout"] {
+  background: var(--mac-surface-strong) !important;
+  border: 1px solid var(--mac-border-strong) !important;
+  box-shadow: 0 14px 34px var(--mac-shadow) !important;
+  backdrop-filter: blur(30px) saturate(130%);
+  -webkit-backdrop-filter: blur(30px) saturate(130%);
+}
+
+[class*="menuItem"],
+[class*="item"] {
+  border-radius: 7px !important;
+}
+
+[class*="menuItem"]:hover,
+[class*="item"]:hover {
+  background: var(--mac-surface-hover) !important;
+}
+
+[class*="menuItem"]:active {
+  background: var(--mac-blue-soft) !important;
+}
+
+/* Modals / dialogs */
+[class*="modal"] {
+  background: rgba(40,40,42,.96) !important;
+  border: 1px solid var(--mac-border-strong) !important;
+  box-shadow: 0 20px 50px rgba(0,0,0,.48) !important;
+}
+
+[class*="backdrop"] {
+  background: rgba(0,0,0,.48) !important;
+  backdrop-filter: blur(5px);
+}
+
+/* Tooltips */
+[class*="tooltip"] {
+  background: #2c2c2e !important;
+  color: #f5f5f7 !important;
+  border: 1px solid var(--mac-border-strong) !important;
+  border-radius: 7px !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,.34) !important;
+}
+
+/* Embeds */
+[class*="embedFull"] {
+  background: rgba(255,255,255,.035) !important;
+  border-left: 3px solid var(--mac-blue) !important;
+  border-radius: 8px !important;
+}
+
+/* Attachments / cards */
+[class*="attachment"],
+[class*="wrapperAudio"],
+[class*="fileWrapper"] {
+  background: rgba(255,255,255,.045) !important;
+  border: 1px solid var(--mac-border) !important;
+  border-radius: 9px !important;
+}
+
+/* Code blocks */
+code,
+[class*="codeBlock"] {
+  background: #171719 !important;
+  border: 1px solid var(--mac-border) !important;
+  border-radius: 8px !important;
+}
+
+/* Mentions / new-message bars */
+[class*="mention"],
+[class*="newMessagesBar"] {
+  background: rgba(10,132,255,.9) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,.16) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 5px 14px rgba(0,0,0,.22) !important;
+}
+
+/* User/account panel */
+[class*="panels"] {
+  background: rgba(27,27,29,.84) !important;
+  border-top: 1px solid var(--mac-border) !important;
+}
+
+/* Badges */
+[class*="numberBadge"],
+[class*="mentionBadge"] {
+  background: var(--mac-blue) !important;
+}
+
+/* Dividers */
+hr,
+[class*="divider"] {
+  border-color: var(--mac-border) !important;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 10px !important;
+  height: 10px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,.17) !important;
+  border: 2px solid transparent !important;
+  background-clip: padding-box !important;
+  border-radius: 8px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,.27) !important;
+  background-clip: padding-box !important;
+}
+
+/* Focus / selection */
+*:focus-visible {
+  outline: 2px solid var(--mac-blue) !important;
+  outline-offset: 2px !important;
+}
+
+::selection {
+  background: rgba(10,132,255,.48) !important;
+  color: #fff !important;
+}
