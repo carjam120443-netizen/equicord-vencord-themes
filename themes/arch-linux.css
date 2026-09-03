@@ -1,0 +1,391 @@
+/*
+ * Arch Linux — Equicord / Vencord theme
+ *
+ * Arch-inspired Discord UI: deep navy surfaces, Arch blue accents,
+ * clean technical geometry, subtle terminal influence, and restrained glow.
+ *
+ * Design rule: keep selectors scoped to recognizable Discord components.
+ * Avoid broad global rules such as [class*="item"] or [class*="container"].
+ */
+
+:root {
+  --arch-blue: #1793d1;
+  --arch-blue-bright: #33aadd;
+  --arch-blue-soft: rgba(23, 147, 209, .14);
+  --arch-blue-hover: rgba(23, 147, 209, .20);
+  --arch-bg: #0f1720;
+  --arch-sidebar: #111c27;
+  --arch-sidebar-deep: #0b131c;
+  --arch-surface: rgba(27, 40, 53, .94);
+  --arch-surface-hover: rgba(44, 62, 79, .92);
+  --arch-surface-active: rgba(23, 147, 209, .18);
+  --arch-border: rgba(141, 180, 205, .13);
+  --arch-border-strong: rgba(141, 180, 205, .22);
+  --arch-text: #e6edf3;
+  --arch-muted: #8fa3b5;
+  --arch-code: #0a1118;
+  --arch-shadow: rgba(0, 0, 0, .34);
+}
+
+/* Discord dark-mode palette */
+.theme-dark,
+.theme-darker,
+.theme-midnight {
+  --background-primary: var(--arch-bg);
+  --background-secondary: var(--arch-sidebar);
+  --background-secondary-alt: #162331;
+  --background-tertiary: var(--arch-sidebar-deep);
+  --background-floating: #182734;
+  --channeltextarea-background: #0c151e;
+  --text-normal: var(--arch-text);
+  --text-muted: var(--arch-muted);
+  --header-primary: #f1f7fb;
+  --header-secondary: #a9bac8;
+  --interactive-normal: #c5d3de;
+  --interactive-hover: #ffffff;
+  --interactive-active: var(--arch-blue-bright);
+  --brand-experiment: var(--arch-blue);
+}
+
+/* Base desktop surface */
+html,
+body,
+#app-mount {
+  background: var(--arch-bg) !important;
+  color: var(--arch-text) !important;
+}
+
+/* Server rail */
+[class*="guilds"] {
+  background: linear-gradient(180deg, #0d1822 0%, #09121a 100%) !important;
+  border-right: 1px solid var(--arch-border) !important;
+}
+
+[class*="guilds"] [class*="wrapper"] {
+  transition: transform 120ms ease, filter 120ms ease;
+}
+
+[class*="guilds"] [class*="wrapper"]:hover {
+  filter: brightness(1.12);
+}
+
+[class*="guilds"] [class*="selected"] {
+  filter: drop-shadow(0 0 7px rgba(23, 147, 209, .28));
+}
+
+[class*="guilds"] [class*="selected"]::before {
+  background: var(--arch-blue-bright) !important;
+  border-radius: 0 3px 3px 0 !important;
+}
+
+/* Server/channel sidebar */
+[class*="sidebar"] {
+  background: linear-gradient(180deg, #13202c 0%, #101a24 100%) !important;
+  border-right: 1px solid var(--arch-border) !important;
+}
+
+[class*="sidebar"] [class*="header"] {
+  background: rgba(11, 19, 28, .62) !important;
+  border-bottom: 1px solid var(--arch-border) !important;
+}
+
+[class*="sidebar"] [class*="header"]:hover {
+  background: rgba(23, 147, 209, .08) !important;
+}
+
+/* Channel rows — deliberately scoped to navigation */
+[class*="sidebar"] [class*="modeDefault"] {
+  border-radius: 4px !important;
+  margin: 1px 8px !important;
+  transition: background 100ms ease, color 100ms ease;
+}
+
+[class*="sidebar"] [class*="modeDefault"]:hover {
+  background: rgba(255, 255, 255, .045) !important;
+}
+
+[class*="sidebar"] [class*="modeSelected"] {
+  background: var(--arch-blue-soft) !important;
+  border-left: 2px solid var(--arch-blue-bright) !important;
+  border-radius: 3px !important;
+  margin-left: 8px !important;
+}
+
+[class*="sidebar"] [class*="modeSelected"] [class*="name"] {
+  color: #ffffff !important;
+}
+
+/* Channel/category text */
+[class*="sidebar"] [class*="name"],
+[class*="sidebar"] [class*="channelName"] {
+  color: #c3d1dc !important;
+}
+
+[class*="sidebar"] [class*="modeUnread"] [class*="name"] {
+  color: #ffffff !important;
+}
+
+/* Main chat */
+[class*="chatContent"] {
+  background: #101923 !important;
+}
+
+[class*="chat"] [class*="header"] {
+  background: rgba(15, 23, 32, .94) !important;
+  border-bottom: 1px solid var(--arch-border) !important;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, .18) !important;
+}
+
+/* Members list */
+[class*="membersWrap"] {
+  background: #101923 !important;
+  border-left: 1px solid var(--arch-border) !important;
+}
+
+[class*="membersWrap"] [class*="member"] {
+  border-radius: 4px !important;
+  margin: 1px 6px !important;
+  transition: background 100ms ease;
+}
+
+[class*="membersWrap"] [class*="member"]:hover {
+  background: rgba(23, 147, 209, .10) !important;
+}
+
+/* Messages */
+[class*="message"] {
+  border-radius: 3px !important;
+  transition: background 100ms ease;
+}
+
+[class*="message"]:hover {
+  background: rgba(255, 255, 255, .025) !important;
+}
+
+[class*="message"] [class*="username"] {
+  color: #f2f7fa !important;
+}
+
+[class*="message"] [class*="timestamp"] {
+  color: #708696 !important;
+}
+
+/* Replies, mentions, and highlighted messages */
+[class*="replying"] {
+  background: rgba(23, 147, 209, .075) !important;
+  box-shadow: inset 2px 0 var(--arch-blue) !important;
+}
+
+[class*="mentioned"] {
+  background: rgba(23, 147, 209, .10) !important;
+  box-shadow: inset 3px 0 var(--arch-blue-bright) !important;
+}
+
+[class*="mentioned"]::before {
+  background: var(--arch-blue-bright) !important;
+}
+
+/* Reactions */
+[class*="reaction"] {
+  background: #172430 !important;
+  border: 1px solid var(--arch-border) !important;
+  border-radius: 4px !important;
+}
+
+[class*="reaction"]:hover {
+  background: var(--arch-blue-soft) !important;
+  border-color: rgba(23, 147, 209, .42) !important;
+}
+
+/* Composer */
+[class*="channelTextArea"] {
+  background: #0c151e !important;
+  border: 1px solid var(--arch-border-strong) !important;
+  border-radius: 5px !important;
+  box-shadow: 0 5px 18px var(--arch-shadow) !important;
+}
+
+[class*="channelTextArea"]:focus-within {
+  border-color: rgba(51, 170, 221, .68) !important;
+  box-shadow: 0 0 0 1px rgba(23, 147, 209, .18), 0 5px 18px var(--arch-shadow) !important;
+}
+
+[class*="channelTextArea"] textarea {
+  color: var(--arch-text) !important;
+}
+
+/* Search */
+[class*="searchBar"] {
+  background: #0d1822 !important;
+  border: 1px solid var(--arch-border) !important;
+  border-radius: 4px !important;
+}
+
+[class*="searchBar"]:focus-within {
+  border-color: rgba(51, 170, 221, .58) !important;
+}
+
+/* Buttons — scoped to actual buttons rather than every Discord element */
+button[class*="lookFilled"] {
+  background: #147db3 !important;
+  border: 1px solid rgba(93, 192, 232, .22) !important;
+  border-radius: 4px !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, .22) !important;
+}
+
+button[class*="lookFilled"]:hover {
+  background: #1b91c9 !important;
+}
+
+button[class*="lookFilled"]:active {
+  background: #106d9d !important;
+}
+
+button[class*="lookOutlined"] {
+  border-color: var(--arch-border-strong) !important;
+  border-radius: 4px !important;
+}
+
+button[class*="lookOutlined"]:hover {
+  border-color: rgba(51, 170, 221, .55) !important;
+  background: var(--arch-blue-soft) !important;
+}
+
+/* Menus and context menus */
+[class*="menu"] {
+  background: #172430 !important;
+  border: 1px solid var(--arch-border-strong) !important;
+  border-radius: 5px !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .48) !important;
+}
+
+[class*="menu"] [role="menuitem"] {
+  border-radius: 3px !important;
+}
+
+[class*="menu"] [role="menuitem"]:hover {
+  background: var(--arch-blue-soft) !important;
+}
+
+[class*="menu"] [role="menuitem"]:active {
+  background: var(--arch-blue-hover) !important;
+}
+
+/* Popouts */
+[class*="popout"] {
+  background: #172430 !important;
+  border: 1px solid var(--arch-border-strong) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .46) !important;
+}
+
+/* Modals */
+[class*="modal"] {
+  background: #14212c !important;
+  border: 1px solid var(--arch-border-strong) !important;
+  border-radius: 7px !important;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, .55) !important;
+}
+
+[class*="backdrop"] {
+  background: rgba(3, 8, 12, .68) !important;
+}
+
+/* Tooltips */
+[class*="tooltip"] {
+  background: #0b131c !important;
+  color: #f1f7fb !important;
+  border: 1px solid var(--arch-border-strong) !important;
+  border-radius: 3px !important;
+  box-shadow: 0 7px 18px rgba(0, 0, 0, .42) !important;
+}
+
+/* Embeds */
+[class*="embedFull"] {
+  background: #14212c !important;
+  border-left: 3px solid var(--arch-blue) !important;
+  border-radius: 4px !important;
+}
+
+/* Attachments */
+[class*="attachment"],
+[class*="fileWrapper"],
+[class*="wrapperAudio"] {
+  background: #14212c !important;
+  border: 1px solid var(--arch-border) !important;
+  border-radius: 5px !important;
+}
+
+/* Code / terminal feel */
+code,
+[class*="codeBlock"] {
+  background: var(--arch-code) !important;
+  border: 1px solid rgba(141, 180, 205, .12) !important;
+  border-radius: 3px !important;
+  font-family: "Cascadia Mono", "DejaVu Sans Mono", monospace !important;
+}
+
+/* New-message and mention bars */
+[class*="newMessagesBar"] {
+  background: #147db3 !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(93, 192, 232, .28) !important;
+  border-radius: 4px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .28) !important;
+}
+
+[class*="mention"] {
+  color: #e8f8ff !important;
+  background: var(--arch-blue-soft) !important;
+}
+
+/* Account/user panel */
+[class*="panels"] {
+  background: #0e1821 !important;
+  border-top: 1px solid var(--arch-border) !important;
+}
+
+/* Badges */
+[class*="numberBadge"],
+[class*="mentionBadge"] {
+  background: var(--arch-blue) !important;
+  color: #ffffff !important;
+}
+
+/* Dividers */
+[class*="divider"] {
+  border-color: var(--arch-border) !important;
+}
+
+/* Scrollbars — compact technical look */
+::-webkit-scrollbar {
+  width: 9px !important;
+  height: 9px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b131c !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #304657 !important;
+  border: 2px solid #0b131c !important;
+  border-radius: 2px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #416176 !important;
+}
+
+/* Keyboard focus */
+*:focus-visible {
+  outline: 2px solid var(--arch-blue-bright) !important;
+  outline-offset: 2px !important;
+}
+
+/* Selection */
+::selection {
+  background: rgba(23, 147, 209, .48) !important;
+  color: #ffffff !important;
+}
