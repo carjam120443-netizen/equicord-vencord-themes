@@ -1,7 +1,7 @@
 /*
  * macOS — Equicord / Vencord theme
- * Modern macOS-inspired Discord UI with vibrancy, soft graphite surfaces,
- * restrained blue accents, native-looking spacing, and subtle depth.
+ * Modern macOS-inspired Discord UI with neutral graphite surfaces,
+ * restrained system-blue accents, native-looking spacing, and subtle depth.
  */
 
 :root {
@@ -14,7 +14,7 @@
   --mac-border: rgba(255, 255, 255, .09);
   --mac-border-strong: rgba(255, 255, 255, .15);
   --mac-blue: #0a84ff;
-  --mac-blue-soft: rgba(10, 132, 255, .18);
+  --mac-blue-soft: rgba(10, 132, 255, .10);
   --mac-text: #f5f5f7;
   --mac-muted: #a1a1a6;
   --mac-shadow: rgba(0, 0, 0, .34);
@@ -36,16 +36,16 @@
   --header-secondary: #b8b8bd;
   --interactive-normal: #d1d1d6;
   --interactive-hover: #ffffff;
-  --interactive-active: var(--mac-blue);
+  --interactive-active: #f5f5f7;
 }
 
-/* macOS-style vibrancy background */
+/* macOS-style neutral vibrancy background */
 html,
 body,
 #app-mount {
   background:
     radial-gradient(circle at 18% 0%, rgba(255,255,255,.055), transparent 30%),
-    radial-gradient(circle at 85% 100%, rgba(10,132,255,.055), transparent 34%),
+    radial-gradient(circle at 85% 100%, rgba(255,255,255,.025), transparent 34%),
     linear-gradient(145deg, #171719 0%, #222224 52%, #1b1b1d 100%) !important;
   color: var(--mac-text) !important;
 }
@@ -65,23 +65,16 @@ body,
   -webkit-backdrop-filter: blur(26px) saturate(125%);
 }
 
-[class*="sidebar"] {
-  border-right: 1px solid var(--mac-border) !important;
-}
+[class*="sidebar"] { border-right: 1px solid var(--mac-border) !important; }
+[class*="membersWrap"] { border-left: 1px solid var(--mac-border) !important; }
 
-[class*="membersWrap"] {
-  border-left: 1px solid var(--mac-border) !important;
-}
-
-/* macOS geometry: rounded, but not excessively pill-shaped */
+/* macOS geometry */
 [class*="menu"],
 [class*="popout"],
 [class*="modal"],
 [class*="card"],
 [class*="form"],
-[class*="container"] {
-  border-radius: 10px !important;
-}
+[class*="container"] { border-radius: 10px !important; }
 
 /* App/channel chrome */
 [class*="titleBar"] {
@@ -97,9 +90,7 @@ body,
 }
 
 /* Server rail */
-[class*="guilds"] {
-  background: rgba(24,24,26,.76) !important;
-}
+[class*="guilds"] { background: rgba(24,24,26,.76) !important; }
 
 [class*="guilds"] [class*="wrapper"] > * {
   border-radius: 10px !important;
@@ -112,7 +103,8 @@ body,
 }
 
 [class*="guilds"] [class*="itemSelected"] {
-  background: var(--mac-blue-soft) !important;
+  background: var(--mac-surface-active) !important;
+  box-shadow: inset 0 0 0 1px var(--mac-border-strong) !important;
 }
 
 /* Channel navigation */
@@ -125,24 +117,17 @@ body,
 
 [class*="modeDefault"]:hover,
 [class*="clickable"]:hover,
-[class*="channel"]:hover {
-  background: var(--mac-surface-hover) !important;
-}
+[class*="channel"]:hover { background: var(--mac-surface-hover) !important; }
 
 [class*="modeSelected"] {
   background: var(--mac-surface-active) !important;
-  box-shadow: inset 2px 0 var(--mac-blue) !important;
+  box-shadow: inset 2px 0 rgba(255,255,255,.55) !important;
   border-radius: 7px !important;
 }
 
 /* Unread indicators */
-[class*="unread"] {
-  background: var(--mac-blue) !important;
-}
-
-[class*="wrapper"] [class*="unread"] {
-  box-shadow: 0 0 6px rgba(10,132,255,.35);
-}
+[class*="unread"] { background: rgba(255,255,255,.72) !important; }
+[class*="wrapper"] [class*="unread"] { box-shadow: none; }
 
 /* Messages */
 [class*="message"] {
@@ -150,23 +135,16 @@ body,
   transition: background 120ms ease;
 }
 
-[class*="message"]:hover {
-  background: rgba(255,255,255,.028) !important;
-}
-
-[class*="message"] [class*="username"] {
-  color: #f5f5f7 !important;
-}
+[class*="message"]:hover { background: rgba(255,255,255,.028) !important; }
+[class*="message"] [class*="username"] { color: #f5f5f7 !important; }
 
 [class*="replying"],
 [class*="mentioned"] {
-  background: rgba(10,132,255,.075) !important;
-  box-shadow: inset 3px 0 var(--mac-blue) !important;
+  background: rgba(255,255,255,.045) !important;
+  box-shadow: inset 3px 0 rgba(255,255,255,.5) !important;
 }
 
-[class*="mentioned"]::before {
-  background: var(--mac-blue) !important;
-}
+[class*="mentioned"]::before { background: rgba(255,255,255,.55) !important; }
 
 /* Reactions */
 [class*="reaction"] {
@@ -176,11 +154,11 @@ body,
 }
 
 [class*="reaction"]:hover {
-  background: var(--mac-blue-soft) !important;
-  border-color: rgba(10,132,255,.35) !important;
+  background: var(--mac-surface-hover) !important;
+  border-color: var(--mac-border-strong) !important;
 }
 
-/* Composer — floating macOS-style input surface */
+/* Composer */
 [class*="channelTextArea"] {
   background: rgba(42,42,44,.92) !important;
   border: 1px solid var(--mac-border-strong) !important;
@@ -189,8 +167,8 @@ body,
 }
 
 [class*="channelTextArea"]:focus-within {
-  border-color: rgba(10,132,255,.65) !important;
-  box-shadow: 0 0 0 1px rgba(10,132,255,.18), 0 5px 20px rgba(0,0,0,.2) !important;
+  border-color: rgba(255,255,255,.24) !important;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.055), 0 5px 20px rgba(0,0,0,.2) !important;
 }
 
 textarea,
@@ -203,11 +181,11 @@ input {
 
 textarea:focus,
 input:focus {
-  border-color: rgba(10,132,255,.65) !important;
-  box-shadow: 0 0 0 2px rgba(10,132,255,.13) !important;
+  border-color: rgba(255,255,255,.24) !important;
+  box-shadow: 0 0 0 2px rgba(255,255,255,.055) !important;
 }
 
-/* macOS-like controls */
+/* macOS-like controls: neutral by default */
 button,
 [class*="button"] {
   border-radius: 7px !important;
@@ -215,25 +193,20 @@ button,
 }
 
 button[class*="lookFilled"] {
-  background: var(--mac-blue) !important;
-  color: #fff !important;
-  border: 1px solid rgba(255,255,255,.12) !important;
-  box-shadow: 0 2px 7px rgba(0,0,0,.2) !important;
+  background: rgba(255,255,255,.10) !important;
+  color: #f5f5f7 !important;
+  border: 1px solid var(--mac-border-strong) !important;
+  box-shadow: 0 2px 7px rgba(0,0,0,.2), inset 0 1px rgba(255,255,255,.035) !important;
 }
 
 button[class*="lookFilled"]:hover {
-  background: #2494ff !important;
-  box-shadow: 0 4px 11px rgba(0,0,0,.24) !important;
+  background: rgba(255,255,255,.15) !important;
+  box-shadow: 0 4px 11px rgba(0,0,0,.24), inset 0 1px rgba(255,255,255,.045) !important;
 }
 
 button:active,
-[class*="button"]:active {
-  transform: scale(.985);
-}
-
-[class*="iconButton"]:hover {
-  background: var(--mac-surface-hover) !important;
-}
+[class*="button"]:active { transform: scale(.985); }
+[class*="iconButton"]:hover { background: var(--mac-surface-hover) !important; }
 
 /* Search field */
 [class*="search"] [class*="searchBar"],
@@ -245,7 +218,7 @@ button:active,
 
 [class*="searchBar"]:focus-within {
   background: rgba(255,255,255,.075) !important;
-  border-color: rgba(10,132,255,.48) !important;
+  border-color: var(--mac-border-strong) !important;
 }
 
 /* Menus / popouts */
@@ -259,18 +232,11 @@ button:active,
 }
 
 [class*="menuItem"],
-[class*="item"] {
-  border-radius: 7px !important;
-}
+[class*="item"] { border-radius: 7px !important; }
 
 [class*="menuItem"]:hover,
-[class*="item"]:hover {
-  background: var(--mac-surface-hover) !important;
-}
-
-[class*="menuItem"]:active {
-  background: var(--mac-blue-soft) !important;
-}
+[class*="item"]:hover { background: var(--mac-surface-hover) !important; }
+[class*="menuItem"]:active { background: var(--mac-surface-active) !important; }
 
 /* Modals / dialogs */
 [class*="modal"] {
@@ -296,7 +262,7 @@ button:active,
 /* Embeds */
 [class*="embedFull"] {
   background: rgba(255,255,255,.035) !important;
-  border-left: 3px solid var(--mac-blue) !important;
+  border-left: 3px solid rgba(255,255,255,.28) !important;
   border-radius: 8px !important;
 }
 
@@ -317,14 +283,20 @@ code,
   border-radius: 8px !important;
 }
 
-/* Mentions / new-message bars */
-[class*="mention"],
+/* New-message / mention UI: neutral instead of bright blue */
 [class*="newMessagesBar"] {
-  background: rgba(10,132,255,.9) !important;
-  color: #fff !important;
-  border: 1px solid rgba(255,255,255,.16) !important;
+  background: rgba(54,54,56,.96) !important;
+  color: #f5f5f7 !important;
+  border: 1px solid var(--mac-border-strong) !important;
   border-radius: 8px !important;
   box-shadow: 0 5px 14px rgba(0,0,0,.22) !important;
+}
+
+/* Keep ordinary inline mentions subtle */
+[class*="mention"] {
+  background: rgba(255,255,255,.09) !important;
+  color: #f5f5f7 !important;
+  border-radius: 4px !important;
 }
 
 /* User/account panel */
@@ -336,44 +308,35 @@ code,
 /* Badges */
 [class*="numberBadge"],
 [class*="mentionBadge"] {
-  background: var(--mac-blue) !important;
+  background: rgba(255,255,255,.18) !important;
+  color: #f5f5f7 !important;
 }
 
 /* Dividers */
 hr,
-[class*="divider"] {
-  border-color: var(--mac-border) !important;
-}
+[class*="divider"] { border-color: var(--mac-border) !important; }
 
 /* Scrollbars */
-::-webkit-scrollbar {
-  width: 10px !important;
-  height: 10px !important;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent !important;
-}
-
+::-webkit-scrollbar { width: 10px !important; height: 10px !important; }
+::-webkit-scrollbar-track { background: transparent !important; }
 ::-webkit-scrollbar-thumb {
   background: rgba(255,255,255,.17) !important;
   border: 2px solid transparent !important;
   background-clip: padding-box !important;
   border-radius: 8px !important;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255,255,255,.27) !important;
   background-clip: padding-box !important;
 }
 
-/* Focus / selection */
+/* Focus / selection — soft neutral focus, system blue only for text selection */
 *:focus-visible {
-  outline: 2px solid var(--mac-blue) !important;
+  outline: 2px solid rgba(255,255,255,.55) !important;
   outline-offset: 2px !important;
 }
 
 ::selection {
-  background: rgba(10,132,255,.48) !important;
+  background: rgba(10,132,255,.30) !important;
   color: #fff !important;
 }
