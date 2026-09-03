@@ -1,144 +1,20 @@
-/*
- * Debian Linux — Equicord / Vencord theme
- * Deep Debian red, graphite panels, and a restrained technical aesthetic.
- */
-
-:root {
-  --debian-red: #d70a53;
-  --debian-red-dark: #8f0738;
-  --debian-graphite: #202124;
-  --debian-panel: #292a2d;
-  --debian-panel-2: #323337;
-  --debian-text: #f2f2f2;
-  --debian-muted: #b5b5b7;
-  --debian-border: rgba(215,10,83,.34);
-}
-
-.theme-dark,
-.theme-darker,
-.theme-midnight {
-  --background-primary: #202124;
-  --background-secondary: #28292c;
-  --background-secondary-alt: #303135;
-  --background-tertiary: #17181a;
-  --background-floating: #2b2c30;
-  --channeltextarea-background: #191a1c;
-  --text-normal: var(--debian-text);
-  --text-muted: var(--debian-muted);
-  --header-primary: #ffffff;
-  --header-secondary: #c4c4c6;
-}
-
-body,
-#app-mount {
-  background:
-    radial-gradient(circle at 50% 0%, rgba(215,10,83,.14), transparent 35%),
-    linear-gradient(145deg, #151619, #292a2e 55%, #191a1c) !important;
-}
-
-/* Debian graphite surfaces */
-[class*="sidebar"],
-[class*="guilds"],
-[class*="membersWrap"],
-[class*="chatContent"],
-[class*="panels"],
-[class*="container"] {
-  background: rgba(32,33,36,.96) !important;
-  border-color: rgba(255,255,255,.06) !important;
-}
-
-[class*="sidebar"] {
-  border-right: 1px solid var(--debian-border) !important;
-}
-
-/* Debian-red top chrome */
-[class*="title"],
-[class*="header"] {
-  background: linear-gradient(180deg, #3a252d, #242125) !important;
-  border-bottom: 2px solid var(--debian-red) !important;
-  box-shadow: inset 0 1px rgba(255,255,255,.07), 0 2px 8px rgba(0,0,0,.3) !important;
-}
-
-/* Selected menu item */
-[class*="modeSelected"],
-[class*="itemSelected"] {
-  background: linear-gradient(90deg, rgba(215,10,83,.78), rgba(143,7,56,.65)) !important;
-  border-left: 3px solid #ff4f8a !important;
-  border-radius: 3px !important;
-  box-shadow: inset 0 1px rgba(255,255,255,.10), 0 2px 6px rgba(0,0,0,.28) !important;
-}
-
-[class*="modeDefault"]:hover,
-[class*="clickable"]:hover {
-  background: rgba(215,10,83,.12) !important;
-  border-radius: 3px !important;
-}
-
-/* Clean Debian-style buttons */
-button,
-[class*="button"] {
-  border-radius: 4px !important;
-}
-
-button[class*="lookFilled"] {
-  background: linear-gradient(180deg, #e32b6e, #a90742) !important;
-  border: 1px solid rgba(255,152,187,.42) !important;
-  box-shadow: inset 0 1px rgba(255,255,255,.20), 0 2px 6px rgba(0,0,0,.3) !important;
-}
-
-button:hover,
-[class*="button"]:hover {
-  background: rgba(215,10,83,.24) !important;
-}
-
-/* Messages */
-[class*="message"]:hover {
-  background: rgba(215,10,83,.045) !important;
-}
-
-/* Composer */
-textarea,
-input,
-[class*="channelTextArea"] {
-  background: #17181a !important;
-  border: 1px solid rgba(215,10,83,.28) !important;
-  border-radius: 5px !important;
-  box-shadow: inset 0 1px 4px rgba(0,0,0,.35) !important;
-}
-
-/* Notification bars */
-[class*="newMessagesBar"],
-[class*="mention"] {
-  background: linear-gradient(90deg, #d70a53, #99083b) !important;
-  color: #fff !important;
-  border-radius: 4px !important;
-  border: 1px solid rgba(255,160,193,.38) !important;
-}
-
-/* Terminal-ish code blocks */
-code,
-[class*="codeBlock"] {
-  background: #111214 !important;
-  border: 1px solid rgba(215,10,83,.24) !important;
-  border-radius: 4px !important;
-}
-
-/* Compact graphite scrollbars */
-::-webkit-scrollbar {
-  width: 10px !important;
-}
-
-::-webkit-scrollbar-track {
-  background: #17181a !important;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #55565a !important;
-  border: 2px solid #17181a !important;
-  border-radius: 5px !important;
-}
-
-::selection {
-  background: rgba(215,10,83,.62) !important;
-  color: #fff !important;
-}
+/* Debian Linux — Equicord / Vencord theme */
+/* Deep Debian red, graphite panels, and a restrained technical aesthetic. */
+:root { --debian-red:#d70a53; --debian-red-dark:#8f0738; --debian-graphite:#202124; --debian-panel:#292a2d; --debian-panel-2:#323337; --debian-text:#f2f2f2; --debian-muted:#b5b5b7; --debian-border:rgba(215,10,83,.34); }
+.theme-dark,.theme-darker,.theme-midnight { --background-primary:#202124; --background-secondary:#28292c; --background-secondary-alt:#303135; --background-tertiary:#17181a; --background-floating:#2b2c30; --channeltextarea-background:#191a1c; --text-normal:var(--debian-text); --text-muted:var(--debian-muted); --header-primary:#fff; --header-secondary:#c4c4c6; }
+body,#app-mount { background:radial-gradient(circle at 50% 0%,rgba(215,10,83,.14),transparent 35%),linear-gradient(145deg,#151619,#292a2e 55%,#191a1c)!important; }
+[class*="sidebar"],[class*="guilds"],[class*="membersWrap"],[class*="chatContent"],[class*="panels"],[class*="container"],[class*="contentWrapper"] { background:rgba(32,33,36,.96)!important; border-color:rgba(255,255,255,.06)!important; }
+[class*="sidebar"] { border-right:1px solid var(--debian-border)!important; }
+[class*="title"],[class*="header"] { background:linear-gradient(180deg,#3a252d,#242125)!important; border-bottom:2px solid var(--debian-red)!important; box-shadow:inset 0 1px rgba(255,255,255,.07),0 2px 8px rgba(0,0,0,.3)!important; }
+[class*="modeSelected"],[class*="itemSelected"] { background:linear-gradient(90deg,rgba(215,10,83,.78),rgba(143,7,56,.65))!important; border-left:3px solid #ff4f8a!important; border-radius:3px!important; box-shadow:inset 0 1px rgba(255,255,255,.10),0 2px 6px rgba(0,0,0,.28)!important; }
+[class*="modeDefault"]:hover,[class*="clickable"]:hover,[class*="channel"]:hover { background:rgba(215,10,83,.12)!important; border-radius:3px!important; }
+[class*="guilds"] [class*="wrapper"]>*:hover { box-shadow:0 0 12px rgba(215,10,83,.24)!important; }
+[class*="message"]:hover { background:rgba(215,10,83,.045)!important; } [class*="reply"] { background:rgba(215,10,83,.055)!important; border-left-color:var(--debian-red)!important; } [class*="embed"] { background:rgba(48,49,53,.72)!important; border-color:rgba(215,10,83,.20)!important; } [class*="reaction"] { background:rgba(215,10,83,.08)!important; border:1px solid rgba(215,10,83,.20)!important; }
+textarea,input,[class*="channelTextArea"],[class*="searchBar"] { background:#17181a!important; border:1px solid rgba(215,10,83,.28)!important; border-radius:5px!important; color:#f2f2f2!important; box-shadow:inset 0 1px 4px rgba(0,0,0,.35)!important; } textarea:focus,input:focus { border-color:rgba(255,79,138,.6)!important; box-shadow:0 0 0 2px rgba(215,10,83,.08)!important; }
+button,[class*="button"] { border-radius:4px!important; } button[class*="lookFilled"] { background:linear-gradient(180deg,#e32b6e,#a90742)!important; border:1px solid rgba(255,152,187,.42)!important; box-shadow:inset 0 1px rgba(255,255,255,.20),0 2px 6px rgba(0,0,0,.3)!important; } button:hover,[class*="button"]:hover { box-shadow:0 0 10px rgba(215,10,83,.15)!important; }
+[class*="menu"],[class*="contextMenu"],[class*="popout"],[class*="modal"] { background:rgba(32,33,36,.98)!important; border:1px solid rgba(215,10,83,.22)!important; box-shadow:0 16px 45px rgba(0,0,0,.5)!important; } [class*="menuItem"]:hover { background:rgba(215,10,83,.11)!important; }
+[class*="newMessagesBar"],[class*="mention"] { background:linear-gradient(90deg,#d70a53,#99083b)!important; color:#fff!important; border:1px solid rgba(255,160,193,.38)!important; border-radius:4px!important; } [class*="badge"] { box-shadow:0 0 9px rgba(215,10,83,.18)!important; }
+code,[class*="codeBlock"] { background:#111214!important; border:1px solid rgba(215,10,83,.24)!important; border-radius:4px!important; } [class*="spoilerText"] { background:rgba(215,10,83,.07)!important; } [class*="attachment"] { background:rgba(48,49,53,.65)!important; border-color:rgba(215,10,83,.16)!important; }
+[class*="tooltip"] { background:#202124!important; border:1px solid rgba(215,10,83,.25)!important; box-shadow:0 8px 25px rgba(0,0,0,.45)!important; }
+::-webkit-scrollbar{width:10px!important} ::-webkit-scrollbar-track{background:#17181a!important} ::-webkit-scrollbar-thumb{background:#55565a!important;border:2px solid #17181a!important;border-radius:5px!important}
+::selection { background:rgba(215,10,83,.62)!important; color:#fff!important; }
