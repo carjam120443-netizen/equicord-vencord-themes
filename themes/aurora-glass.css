@@ -1,0 +1,68 @@
+/* Aurora Glass — Equicord / Vencord theme */
+/* A frosted-glass Discord look with cyan, violet and magenta accents. */
+
+:root {
+  --eg-bg: #090b14;
+  --eg-surface: rgba(18, 21, 36, 0.78);
+  --eg-surface-2: rgba(29, 33, 55, 0.72);
+  --eg-border: rgba(139, 156, 255, 0.18);
+  --eg-cyan: #67e8f9;
+  --eg-violet: #a78bfa;
+  --eg-pink: #f0abfc;
+  --eg-text: #eef2ff;
+}
+
+body, #app-mount {
+  background: radial-gradient(circle at 15% 10%, rgba(103,232,249,.10), transparent 28%),
+              radial-gradient(circle at 85% 15%, rgba(167,139,250,.12), transparent 30%),
+              var(--eg-bg) !important;
+}
+
+/* Main panels */
+[class*="sidebar"], [class*="panels"], [class*="chat"], [class*="membersWrap"],
+[class*="contentRegion"] {
+  background: var(--eg-surface) !important;
+  backdrop-filter: blur(18px) saturate(135%);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+}
+
+[class*="sidebar"], [class*="membersWrap"], [class*="panels"] {
+  border-color: var(--eg-border) !important;
+}
+
+/* Channel hover/selection */
+[class*="channel"]:hover {
+  background: rgba(103, 232, 249, .08) !important;
+}
+[class*="modeSelected"] {
+  background: linear-gradient(90deg, rgba(103,232,249,.16), rgba(167,139,250,.10)) !important;
+  box-shadow: inset 2px 0 0 var(--eg-cyan);
+}
+
+/* Buttons */
+button[class*="lookFilled"] {
+  background: linear-gradient(135deg, var(--eg-violet), #6366f1) !important;
+  box-shadow: 0 5px 18px rgba(99,102,241,.22);
+}
+
+/* Message cards */
+[class*="message"]:hover {
+  background: rgba(255,255,255,.025) !important;
+}
+
+/* Inputs */
+textarea, input, [class*="channelTextArea"] {
+  background: var(--eg-surface-2) !important;
+  border: 1px solid var(--eg-border) !important;
+}
+
+/* Accent glow */
+[class*="mention"], [class*="newMessagesBar"] {
+  border-color: var(--eg-cyan) !important;
+  box-shadow: 0 0 14px rgba(103,232,249,.16);
+}
+
+::selection {
+  background: rgba(167,139,250,.45);
+  color: white;
+}
