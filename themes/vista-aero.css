@@ -1,0 +1,176 @@
+/*
+ * Vista Aero
+ * A Windows Vista Aero-inspired Discord theme: glass, blue gradients,
+ * soft highlights, and translucent desktop-era chrome.
+ */
+
+:root {
+  --vista-blue: #3f86bd;
+  --vista-blue-dark: #17486f;
+  --vista-glass: rgba(28, 67, 91, 0.72);
+  --vista-glass-light: rgba(104, 171, 211, 0.22);
+  --vista-border: rgba(210, 240, 255, 0.42);
+  --vista-highlight: rgba(255, 255, 255, 0.32);
+  --vista-text: #f4fbff;
+  --vista-muted: #bfd1dc;
+}
+
+.theme-dark,
+.theme-darker,
+.theme-midnight {
+  --background-primary: rgba(16, 35, 48, 0.78);
+  --background-secondary: rgba(12, 29, 41, 0.82);
+  --background-secondary-alt: rgba(28, 55, 70, 0.78);
+  --background-tertiary: rgba(7, 20, 29, 0.88);
+  --background-floating: rgba(22, 48, 64, 0.94);
+  --channeltextarea-background: rgba(7, 24, 35, 0.82);
+  --text-normal: var(--vista-text);
+  --text-muted: var(--vista-muted);
+  --header-primary: #ffffff;
+  --header-secondary: #c8e0ed;
+}
+
+body {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(112, 191, 236, 0.26), transparent 40%),
+    linear-gradient(145deg, #07131b, #173b52 55%, #07141d) !important;
+}
+
+/* Vista-style glass across major panels */
+[class*="sidebar"],
+[class*="guilds"],
+[class*="membersWrap"],
+[class*="chatContent"],
+[class*="panels"],
+[class*="titleBar"],
+[class*="container"] {
+  background: var(--vista-glass) !important;
+  border-color: var(--vista-border) !important;
+  backdrop-filter: blur(14px) saturate(125%);
+}
+
+[class*="sidebar"],
+[class*="membersWrap"] {
+  box-shadow: inset 1px 0 var(--vista-highlight), inset -1px 0 rgba(0, 0, 0, 0.45);
+}
+
+/* Glossy header chrome */
+[class*="title"] {
+  background: linear-gradient(
+    to bottom,
+    rgba(120, 190, 230, 0.42),
+    rgba(27, 77, 108, 0.72) 48%,
+    rgba(11, 43, 62, 0.86)
+  ) !important;
+  border-bottom: 1px solid rgba(210, 240, 255, 0.45) !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Channels: glossy selected state */
+[class*="modeSelected"],
+[class*="itemSelected"] {
+  background: linear-gradient(
+    to bottom,
+    rgba(132, 205, 241, 0.48),
+    rgba(42, 112, 157, 0.7)
+  ) !important;
+  border: 1px solid rgba(220, 246, 255, 0.45) !important;
+  border-radius: 5px !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.4),
+    0 1px 5px rgba(0, 0, 0, 0.35) !important;
+}
+
+[class*="modeDefault"]:hover,
+[class*="clickable"]:hover {
+  background: rgba(100, 169, 206, 0.2) !important;
+  border-radius: 5px !important;
+}
+
+/* Server icons */
+[class*="guilds"] [class*="wrapper"] > * {
+  border-radius: 12px !important;
+  transition: border-radius 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+[class*="guilds"] [class*="wrapper"] > *:hover {
+  border-radius: 8px !important;
+  box-shadow: 0 0 10px rgba(113, 207, 255, 0.42);
+}
+
+/* Message hover: subtle glass reflection */
+[class*="message"]:hover {
+  background: linear-gradient(90deg, rgba(113, 182, 219, 0.1), rgba(255, 255, 255, 0.035)) !important;
+}
+
+/* Input box */
+[class*="channelTextArea"] {
+  background: rgba(5, 24, 35, 0.72) !important;
+  border: 1px solid rgba(190, 230, 250, 0.38) !important;
+  border-radius: 7px !important;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.16),
+    0 2px 8px rgba(0, 0, 0, 0.35) !important;
+  backdrop-filter: blur(12px);
+}
+
+/* Vista-style buttons */
+button,
+[class*="button"] {
+  border-radius: 5px !important;
+}
+
+button:hover,
+[class*="button"]:hover {
+  background: linear-gradient(to bottom, rgba(164, 220, 247, 0.4), rgba(43, 116, 160, 0.55)) !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.35), 0 0 6px rgba(104, 197, 243, 0.22);
+}
+
+/* Search and text fields */
+input,
+textarea {
+  background: rgba(5, 22, 32, 0.72) !important;
+  border: 1px solid rgba(190, 230, 250, 0.32) !important;
+  border-radius: 5px !important;
+  color: #f4fbff !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Mentions / new messages */
+[class*="mention"],
+[class*="newMessagesBar"] {
+  background: linear-gradient(to bottom, #69b6e3, #2f78a9) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(220, 246, 255, 0.45) !important;
+  border-radius: 5px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Code blocks */
+code,
+[class*="codeBlock"] {
+  background: rgba(2, 15, 23, 0.82) !important;
+  border: 1px solid rgba(128, 194, 224, 0.3) !important;
+  border-radius: 5px !important;
+}
+
+/* Glossy scrollbars */
+::-webkit-scrollbar {
+  width: 10px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(4, 17, 25, 0.55) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, rgba(119, 184, 217, 0.8), rgba(34, 82, 111, 0.9)) !important;
+  border: 2px solid rgba(5, 20, 29, 0.5) !important;
+  border-radius: 6px !important;
+}
+
+/* Selection */
+::selection {
+  background: rgba(103, 190, 237, 0.72) !important;
+  color: #ffffff !important;
+}
