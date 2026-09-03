@@ -1,0 +1,53 @@
+/* Aero Reborn — Equicord / Vencord theme */
+/* Glossy Windows-era inspired glass without copying proprietary assets. */
+
+:root {
+  --aero-blue: #5bbcff;
+  --aero-blue-dark: #1769aa;
+  --aero-glass: rgba(16, 34, 54, .70);
+  --aero-glass-light: rgba(255,255,255,.09);
+  --aero-border: rgba(181, 226, 255, .30);
+}
+
+body, #app-mount {
+  background:
+    radial-gradient(circle at 50% -10%, rgba(91,188,255,.30), transparent 38%),
+    linear-gradient(145deg, #07131f, #10283d 55%, #081522) !important;
+}
+
+[class*="sidebar"], [class*="panels"], [class*="chat"], [class*="membersWrap"] {
+  background: linear-gradient(135deg, rgba(40,75,103,.72), rgba(7,20,32,.78)) !important;
+  backdrop-filter: blur(20px) saturate(140%);
+  border-color: var(--aero-border) !important;
+}
+
+[class*="title"], [class*="header"] {
+  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.025)) !important;
+  border-bottom: 1px solid rgba(181,226,255,.18) !important;
+}
+
+[class*="channel"]:hover, [class*="item"]:hover {
+  background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(91,188,255,.07)) !important;
+}
+
+[class*="modeSelected"] {
+  background: linear-gradient(180deg, rgba(91,188,255,.28), rgba(23,105,170,.24)) !important;
+  border: 1px solid rgba(181,226,255,.20);
+  box-shadow: inset 0 1px rgba(255,255,255,.16), 0 0 14px rgba(91,188,255,.12);
+}
+
+button[class*="lookFilled"] {
+  background: linear-gradient(180deg, #67c6ff, #2579bd) !important;
+  border: 1px solid rgba(220,245,255,.45) !important;
+  box-shadow: inset 0 1px rgba(255,255,255,.35), 0 3px 12px rgba(0,0,0,.25);
+}
+
+textarea, input, [class*="channelTextArea"] {
+  background: rgba(3, 15, 25, .58) !important;
+  border: 1px solid rgba(181,226,255,.20) !important;
+  box-shadow: inset 0 1px 4px rgba(0,0,0,.25);
+}
+
+[class*="message"]:hover {
+  background: rgba(91,188,255,.035) !important;
+}
