@@ -1,53 +1,19 @@
 /* Forest Terminal — Equicord / Vencord theme */
 /* CRT-ish hacker terminal atmosphere, kept readable for daily Discord use. */
-
-:root {
-  --ft-bg: #07100b;
-  --ft-panel: rgba(7, 18, 11, .92);
-  --ft-green: #7dff9a;
-  --ft-green-2: #2ee66b;
-  --ft-line: rgba(125,255,154,.13);
-}
-
-body, #app-mount {
-  background: radial-gradient(circle at 50% 0%, rgba(46,230,107,.08), transparent 35%), var(--ft-bg) !important;
-}
-
-[class*="sidebar"], [class*="panels"], [class*="chat"], [class*="membersWrap"] {
-  background: var(--ft-panel) !important;
-  border-color: var(--ft-line) !important;
-}
-
-[class*="channel"]:hover {
-  background: rgba(125,255,154,.055) !important;
-}
-
-[class*="modeSelected"] {
-  background: rgba(46,230,107,.11) !important;
-  box-shadow: inset 2px 0 var(--ft-green-2);
-}
-
-button[class*="lookFilled"] {
-  background: var(--ft-green-2) !important;
-  color: #031007 !important;
-  font-weight: 700;
-}
-
-textarea, input, [class*="channelTextArea"] {
-  background: rgba(2,8,4,.82) !important;
-  border: 1px solid var(--ft-line) !important;
-  box-shadow: inset 0 0 14px rgba(46,230,107,.035);
-}
-
-[class*="message"]:hover {
-  background: rgba(125,255,154,.022) !important;
-}
-
-[class*="mention"], [class*="newMessagesBar"] {
-  border-color: var(--ft-green) !important;
-}
-
-::selection {
-  background: var(--ft-green);
-  color: #031007;
-}
+:root { --ft-bg:#07100b; --ft-panel:rgba(7,18,11,.92); --ft-panel-2:rgba(4,12,7,.88); --ft-green:#7dff9a; --ft-green-2:#2ee66b; --ft-line:rgba(125,255,154,.13); --ft-muted:#86ad91; }
+.theme-dark,.theme-darker,.theme-midnight { --background-primary:#08120c; --background-secondary:#0b170e; --background-secondary-alt:#102117; --background-tertiary:#030804; --background-floating:#0c1b10; --channeltextarea-background:#061008; --text-normal:#e8ffed; --text-muted:var(--ft-muted); --header-primary:#fff; --header-secondary:#b8d8c0; }
+body,#app-mount { background:radial-gradient(circle at 50% 0%,rgba(46,230,107,.10),transparent 35%),linear-gradient(180deg,#061009,#08140b 60%,#030805)!important; }
+[class*="sidebar"],[class*="panels"],[class*="chat"],[class*="membersWrap"],[class*="guilds"],[class*="container"],[class*="contentWrapper"] { background:var(--ft-panel)!important; border-color:var(--ft-line)!important; }
+[class*="title"],[class*="header"] { background:linear-gradient(180deg,rgba(46,230,107,.10),rgba(3,12,7,.65))!important; border-bottom:1px solid var(--ft-line)!important; box-shadow:inset 0 1px rgba(125,255,154,.10),0 3px 14px rgba(0,0,0,.25)!important; }
+[class*="channel"]:hover,[class*="modeDefault"]:hover,[class*="clickable"]:hover { background:rgba(125,255,154,.055)!important; }
+[class*="modeSelected"],[class*="itemSelected"] { background:linear-gradient(90deg,rgba(46,230,107,.14),rgba(125,255,154,.05))!important; border-left:2px solid var(--ft-green-2)!important; box-shadow:inset 0 0 14px rgba(46,230,107,.035)!important; }
+[class*="guilds"] [class*="wrapper"]>*:hover { box-shadow:0 0 13px rgba(46,230,107,.24)!important; }
+[class*="message"]:hover { background:rgba(125,255,154,.022)!important; } [class*="reply"] { background:rgba(46,230,107,.05)!important; border-left-color:var(--ft-green-2)!important; } [class*="embed"] { background:rgba(7,18,11,.75)!important; border-color:var(--ft-line)!important; } [class*="reaction"] { background:rgba(46,230,107,.08)!important; border:1px solid var(--ft-line)!important; }
+textarea,input,[class*="channelTextArea"],[class*="searchBar"] { background:var(--ft-panel-2)!important; border:1px solid var(--ft-line)!important; color:#e8ffed!important; box-shadow:inset 0 0 14px rgba(46,230,107,.035)!important; } textarea:focus,input:focus { border-color:rgba(125,255,154,.45)!important; box-shadow:0 0 10px rgba(46,230,107,.10)!important; }
+button,[class*="button"] { border-radius:3px!important; } button[class*="lookFilled"] { background:var(--ft-green-2)!important; color:#031007!important; font-weight:700; box-shadow:0 0 12px rgba(46,230,107,.12)!important; } button:hover,[class*="button"]:hover { box-shadow:0 0 10px rgba(125,255,154,.13)!important; }
+[class*="menu"],[class*="contextMenu"],[class*="popout"],[class*="modal"] { background:rgba(5,14,8,.97)!important; border:1px solid var(--ft-line)!important; box-shadow:0 15px 40px rgba(0,0,0,.5),0 0 16px rgba(46,230,107,.05)!important; } [class*="menuItem"]:hover { background:rgba(46,230,107,.09)!important; }
+[class*="mention"],[class*="newMessagesBar"] { background:rgba(46,230,107,.14)!important; border-color:var(--ft-green)!important; box-shadow:0 0 12px rgba(46,230,107,.10)!important; } [class*="badge"] { box-shadow:0 0 8px rgba(46,230,107,.18)!important; }
+code,[class*="codeBlock"] { background:#020704!important; border:1px solid var(--ft-line)!important; font-family:"DejaVu Sans Mono","Consolas",monospace!important; } [class*="spoilerText"] { background:rgba(125,255,154,.06)!important; } [class*="attachment"] { background:rgba(7,18,11,.65)!important; border-color:var(--ft-line)!important; }
+[class*="tooltip"] { background:#061009!important; border:1px solid var(--ft-line)!important; box-shadow:0 0 15px rgba(46,230,107,.08)!important; }
+::-webkit-scrollbar{width:9px!important} ::-webkit-scrollbar-track{background:#030805!important} ::-webkit-scrollbar-thumb{background:#2b7d46!important;border:2px solid #030805!important;border-radius:2px!important}
+::selection { background:var(--ft-green); color:#031007; }
