@@ -1,136 +1,20 @@
-/*
- * Ubuntu Linux — Equicord / Vencord theme
- * Warm aubergine surfaces, Ubuntu orange accents, and a clean GNOME-inspired UI.
- */
-
-:root {
-  --ubuntu-aubergine: #2c001e;
-  --ubuntu-purple: #5e2750;
-  --ubuntu-orange: #e95420;
-  --ubuntu-orange-light: #ff7a45;
-  --ubuntu-text: #f7f3f5;
-  --ubuntu-muted: #c9b8c3;
-}
-
-.theme-dark,
-.theme-darker,
-.theme-midnight {
-  --background-primary: #21111d;
-  --background-secondary: #2b1725;
-  --background-secondary-alt: #351b2d;
-  --background-tertiary: #180b15;
-  --background-floating: #32182a;
-  --channeltextarea-background: #1b0d17;
-  --text-normal: var(--ubuntu-text);
-  --text-muted: var(--ubuntu-muted);
-  --header-primary: #ffffff;
-  --header-secondary: #d9c8d1;
-}
-
-body,
-#app-mount {
-  background:
-    radial-gradient(circle at 50% 0%, rgba(233,84,32,.20), transparent 34%),
-    linear-gradient(145deg, #160914, #35132c 55%, #210b1c) !important;
-}
-
-/* GNOME-ish clean panels */
-[class*="sidebar"],
-[class*="guilds"],
-[class*="membersWrap"],
-[class*="chatContent"],
-[class*="panels"],
-[class*="container"] {
-  background: rgba(38, 18, 32, .92) !important;
-  border-color: rgba(255,255,255,.07) !important;
-}
-
-[class*="sidebar"] {
-  border-right: 1px solid rgba(233,84,32,.18) !important;
-}
-
-/* Ubuntu-orange header */
-[class*="title"],
-[class*="header"] {
-  background: linear-gradient(180deg, rgba(101,42,77,.96), rgba(48,20,39,.98)) !important;
-  border-bottom: 2px solid rgba(233,84,32,.65) !important;
-  box-shadow: inset 0 1px rgba(255,255,255,.08), 0 2px 8px rgba(0,0,0,.25) !important;
-}
-
-/* Selected channels */
-[class*="modeSelected"],
-[class*="itemSelected"] {
-  background: linear-gradient(90deg, rgba(233,84,32,.78), rgba(193,56,23,.65)) !important;
-  border-left: 3px solid #ff9a72 !important;
-  border-radius: 4px !important;
-  box-shadow: inset 0 1px rgba(255,255,255,.14), 0 2px 7px rgba(0,0,0,.24) !important;
-}
-
-[class*="modeDefault"]:hover,
-[class*="clickable"]:hover {
-  background: rgba(233,84,32,.14) !important;
-  border-radius: 4px !important;
-}
-
-/* Ubuntu-style orange buttons */
-button,
-[class*="button"] {
-  border-radius: 5px !important;
-}
-
-button[class*="lookFilled"] {
-  background: linear-gradient(180deg, #ff7040, #d94117) !important;
-  border: 1px solid rgba(255,173,145,.45) !important;
-  box-shadow: inset 0 1px rgba(255,255,255,.25), 0 2px 6px rgba(0,0,0,.28) !important;
-}
-
-button:hover,
-[class*="button"]:hover {
-  background: rgba(233,84,32,.25) !important;
-}
-
-/* Message hover */
-[class*="message"]:hover {
-  background: rgba(233,84,32,.055) !important;
-}
-
-/* Composer and fields */
-textarea,
-input,
-[class*="channelTextArea"] {
-  background: #190c15 !important;
-  border: 1px solid rgba(233,84,32,.28) !important;
-  border-radius: 6px !important;
-  box-shadow: inset 0 1px 4px rgba(0,0,0,.3) !important;
-}
-
-/* Mentions */
-[class*="newMessagesBar"],
-[class*="mention"] {
-  background: linear-gradient(90deg, #e95420, #bf421e) !important;
-  color: #fff !important;
-  border-radius: 5px !important;
-}
-
-/* Code */
-code,
-[class*="codeBlock"] {
-  background: #120910 !important;
-  border: 1px solid rgba(233,84,32,.22) !important;
-  border-radius: 5px !important;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #6a304f !important;
-  border: 2px solid #1b0c16 !important;
-  border-radius: 6px !important;
-}
-
-::-webkit-scrollbar-track {
-  background: #190b15 !important;
-}
-
-::selection {
-  background: rgba(233,84,32,.65) !important;
-  color: #fff !important;
-}
+/* Ubuntu Linux — Equicord / Vencord theme */
+/* Warm aubergine surfaces, Ubuntu orange accents, and a clean GNOME-inspired UI. */
+:root { --ubuntu-aubergine:#2c001e; --ubuntu-purple:#5e2750; --ubuntu-orange:#e95420; --ubuntu-orange-light:#ff7a45; --ubuntu-text:#f7f3f5; --ubuntu-muted:#c9b8c3; }
+.theme-dark,.theme-darker,.theme-midnight { --background-primary:#21111d; --background-secondary:#2b1725; --background-secondary-alt:#351b2d; --background-tertiary:#180b15; --background-floating:#32182a; --channeltextarea-background:#1b0d17; --text-normal:var(--ubuntu-text); --text-muted:var(--ubuntu-muted); --header-primary:#fff; --header-secondary:#d9c8d1; }
+body,#app-mount { background:radial-gradient(circle at 50% 0%,rgba(233,84,32,.20),transparent 34%),linear-gradient(145deg,#160914,#35132c 55%,#210b1c)!important; }
+[class*="sidebar"],[class*="guilds"],[class*="membersWrap"],[class*="chatContent"],[class*="panels"],[class*="container"],[class*="contentWrapper"] { background:rgba(38,18,32,.92)!important; border-color:rgba(255,255,255,.07)!important; }
+[class*="sidebar"] { border-right:1px solid rgba(233,84,32,.18)!important; }
+[class*="title"],[class*="header"] { background:linear-gradient(180deg,rgba(101,42,77,.96),rgba(48,20,39,.98))!important; border-bottom:2px solid rgba(233,84,32,.65)!important; box-shadow:inset 0 1px rgba(255,255,255,.08),0 2px 8px rgba(0,0,0,.25)!important; }
+[class*="modeSelected"],[class*="itemSelected"] { background:linear-gradient(90deg,rgba(233,84,32,.78),rgba(193,56,23,.65))!important; border-left:3px solid #ff9a72!important; border-radius:4px!important; box-shadow:inset 0 1px rgba(255,255,255,.14),0 2px 7px rgba(0,0,0,.24)!important; }
+[class*="modeDefault"]:hover,[class*="clickable"]:hover,[class*="channel"]:hover { background:rgba(233,84,32,.14)!important; border-radius:4px!important; }
+[class*="guilds"] [class*="wrapper"]>*:hover { box-shadow:0 0 12px rgba(233,84,32,.25)!important; }
+[class*="message"]:hover { background:rgba(233,84,32,.055)!important; } [class*="reply"] { background:rgba(94,39,80,.22)!important; border-left-color:var(--ubuntu-orange)!important; } [class*="embed"] { background:rgba(53,27,45,.72)!important; border-color:rgba(233,84,32,.25)!important; } [class*="reaction"] { background:rgba(233,84,32,.10)!important; border:1px solid rgba(233,84,32,.22)!important; }
+textarea,input,[class*="channelTextArea"],[class*="searchBar"] { background:#190c15!important; border:1px solid rgba(233,84,32,.28)!important; border-radius:6px!important; color:#f7f3f5!important; box-shadow:inset 0 1px 4px rgba(0,0,0,.3)!important; } textarea:focus,input:focus { border-color:rgba(255,122,69,.65)!important; box-shadow:0 0 0 2px rgba(233,84,32,.10)!important; }
+button,[class*="button"] { border-radius:5px!important; } button[class*="lookFilled"] { background:linear-gradient(180deg,#ff7040,#d94117)!important; border:1px solid rgba(255,173,145,.45)!important; box-shadow:inset 0 1px rgba(255,255,255,.25),0 2px 6px rgba(0,0,0,.28)!important; } button:hover,[class*="button"]:hover { box-shadow:0 0 10px rgba(233,84,32,.15)!important; }
+[class*="menu"],[class*="contextMenu"],[class*="popout"],[class*="modal"] { background:rgba(38,18,32,.98)!important; border:1px solid rgba(233,84,32,.22)!important; box-shadow:0 16px 45px rgba(0,0,0,.45)!important; } [class*="menuItem"]:hover { background:rgba(233,84,32,.13)!important; }
+[class*="newMessagesBar"],[class*="mention"] { background:linear-gradient(90deg,#e95420,#bf421e)!important; color:#fff!important; border:1px solid rgba(255,173,145,.35)!important; border-radius:5px!important; } [class*="badge"] { box-shadow:0 0 9px rgba(233,84,32,.18)!important; }
+code,[class*="codeBlock"] { background:#120910!important; border:1px solid rgba(233,84,32,.22)!important; border-radius:5px!important; } [class*="spoilerText"] { background:rgba(233,84,32,.08)!important; } [class*="attachment"] { background:rgba(53,27,45,.65)!important; border-color:rgba(233,84,32,.18)!important; }
+[class*="tooltip"] { background:#21111d!important; border:1px solid rgba(233,84,32,.25)!important; box-shadow:0 8px 25px rgba(0,0,0,.4)!important; }
+::-webkit-scrollbar{width:9px!important} ::-webkit-scrollbar-track{background:#190b15!important} ::-webkit-scrollbar-thumb{background:#6a304f!important;border:2px solid #190b15!important;border-radius:5px!important}
+::selection { background:rgba(233,84,32,.65)!important; color:#fff!important; }
