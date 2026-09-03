@@ -1,53 +1,67 @@
 /*
  * Arch Linux — Equicord / Vencord theme
  *
- * Arch-inspired Discord UI: deep navy surfaces, Arch blue accents,
- * clean technical geometry, subtle terminal influence, and restrained glow.
+ * Arch-inspired Discord UI based on the real Discord desktop layout:
+ * dark blue-gray GTK-like surfaces, restrained Arch blue accents,
+ * compact technical geometry, and subtle terminal influence.
  *
- * Design rule: keep selectors scoped to recognizable Discord components.
- * Avoid broad global rules such as [class*="item"] or [class*="container"].
+ * Design rules:
+ * - Keep the Discord layout intact.
+ * - Use Arch blue as an accent, not as a global tint.
+ * - Prefer flat/low-depth surfaces over glassmorphism.
+ * - Keep corners compact and functional.
+ * - Scope component selectors to recognizable Discord regions.
  */
 
 :root {
   --arch-blue: #1793d1;
   --arch-blue-bright: #33aadd;
-  --arch-blue-soft: rgba(23, 147, 209, .14);
-  --arch-blue-hover: rgba(23, 147, 209, .20);
-  --arch-bg: #0f1720;
-  --arch-sidebar: #111c27;
-  --arch-sidebar-deep: #0b131c;
-  --arch-surface: rgba(27, 40, 53, .94);
-  --arch-surface-hover: rgba(44, 62, 79, .92);
-  --arch-surface-active: rgba(23, 147, 209, .18);
-  --arch-border: rgba(141, 180, 205, .13);
-  --arch-border-strong: rgba(141, 180, 205, .22);
-  --arch-text: #e6edf3;
-  --arch-muted: #8fa3b5;
-  --arch-code: #0a1118;
+  --arch-blue-soft: rgba(23, 147, 209, .13);
+  --arch-blue-hover: rgba(23, 147, 209, .19);
+  --arch-blue-strong: rgba(23, 147, 209, .28);
+
+  --arch-bg: #101820;
+  --arch-bg-deep: #0b1219;
+  --arch-sidebar: #121d28;
+  --arch-sidebar-deep: #0d1720;
+  --arch-surface: #17232e;
+  --arch-surface-raised: #1b2935;
+  --arch-surface-hover: #202f3c;
+  --arch-border: rgba(164, 194, 214, .12);
+  --arch-border-strong: rgba(164, 194, 214, .20);
+
+  --arch-text: #e7eef4;
+  --arch-text-bright: #f5f9fc;
+  --arch-muted: #8fa2b1;
+  --arch-subtle: #6e8291;
+  --arch-code: #091118;
   --arch-shadow: rgba(0, 0, 0, .34);
 }
 
-/* Discord dark-mode palette */
+/* Discord dark-mode variables */
 .theme-dark,
 .theme-darker,
 .theme-midnight {
   --background-primary: var(--arch-bg);
   --background-secondary: var(--arch-sidebar);
-  --background-secondary-alt: #162331;
+  --background-secondary-alt: #172431;
   --background-tertiary: var(--arch-sidebar-deep);
-  --background-floating: #182734;
-  --channeltextarea-background: #0c151e;
+  --background-floating: #182632;
+  --channeltextarea-background: #0c151d;
   --text-normal: var(--arch-text);
   --text-muted: var(--arch-muted);
-  --header-primary: #f1f7fb;
-  --header-secondary: #a9bac8;
-  --interactive-normal: #c5d3de;
+  --header-primary: var(--arch-text-bright);
+  --header-secondary: #a9bac7;
+  --interactive-normal: #c5d2dc;
   --interactive-hover: #ffffff;
   --interactive-active: var(--arch-blue-bright);
   --brand-experiment: var(--arch-blue);
 }
 
-/* Base desktop surface */
+/* -------------------------------------------------------------------------- */
+/* Foundation                                                                */
+/* -------------------------------------------------------------------------- */
+
 html,
 body,
 #app-mount {
@@ -55,191 +69,320 @@ body,
   color: var(--arch-text) !important;
 }
 
-/* Server rail */
+/* Keep the desktop frame visually quiet like a Linux desktop shell. */
+[class*="appMount"],
+[class*="appAsidePanelWrapper"] {
+  background: var(--arch-bg) !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Server rail                                                               */
+/* -------------------------------------------------------------------------- */
+
 [class*="guilds"] {
-  background: linear-gradient(180deg, #0d1822 0%, #09121a 100%) !important;
+  background: var(--arch-bg-deep) !important;
   border-right: 1px solid var(--arch-border) !important;
 }
 
+[class*="guilds"] [class*="scroller"] {
+  background: transparent !important;
+}
+
 [class*="guilds"] [class*="wrapper"] {
-  transition: transform 120ms ease, filter 120ms ease;
+  transition: filter 110ms ease, transform 110ms ease !important;
 }
 
 [class*="guilds"] [class*="wrapper"]:hover {
-  filter: brightness(1.12);
+  filter: brightness(1.13) !important;
 }
 
 [class*="guilds"] [class*="selected"] {
-  filter: drop-shadow(0 0 7px rgba(23, 147, 209, .28));
+  filter: drop-shadow(0 0 6px rgba(23, 147, 209, .24)) !important;
 }
 
 [class*="guilds"] [class*="selected"]::before {
   background: var(--arch-blue-bright) !important;
-  border-radius: 0 3px 3px 0 !important;
+  border-radius: 0 2px 2px 0 !important;
 }
 
-/* Server/channel sidebar */
+/* Home/DM button: crisp Arch-blue focus rather than a giant glow. */
+[class*="guilds"] [class*="homeIcon"] {
+  color: var(--arch-blue-bright) !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Left navigation / DM sidebar                                               */
+/* -------------------------------------------------------------------------- */
+
 [class*="sidebar"] {
-  background: linear-gradient(180deg, #13202c 0%, #101a24 100%) !important;
+  background: var(--arch-sidebar) !important;
   border-right: 1px solid var(--arch-border) !important;
 }
 
+[class*="sidebar"] > [class*="container"] {
+  background: transparent !important;
+}
+
 [class*="sidebar"] [class*="header"] {
-  background: rgba(11, 19, 28, .62) !important;
+  background: var(--arch-sidebar-deep) !important;
   border-bottom: 1px solid var(--arch-border) !important;
+  box-shadow: none !important;
 }
 
 [class*="sidebar"] [class*="header"]:hover {
-  background: rgba(23, 147, 209, .08) !important;
+  background: #13222e !important;
 }
 
-/* Channel rows — deliberately scoped to navigation */
+/* Navigation rows only — no global item/container rules. */
 [class*="sidebar"] [class*="modeDefault"] {
-  border-radius: 4px !important;
-  margin: 1px 8px !important;
-  transition: background 100ms ease, color 100ms ease;
+  border-radius: 3px !important;
+  margin: 1px 7px !important;
+  transition: background 100ms ease, color 100ms ease !important;
 }
 
 [class*="sidebar"] [class*="modeDefault"]:hover {
-  background: rgba(255, 255, 255, .045) !important;
+  background: rgba(255, 255, 255, .035) !important;
 }
 
 [class*="sidebar"] [class*="modeSelected"] {
   background: var(--arch-blue-soft) !important;
   border-left: 2px solid var(--arch-blue-bright) !important;
   border-radius: 3px !important;
-  margin-left: 8px !important;
+  margin-left: 7px !important;
 }
 
 [class*="sidebar"] [class*="modeSelected"] [class*="name"] {
   color: #ffffff !important;
 }
 
-/* Channel/category text */
 [class*="sidebar"] [class*="name"],
 [class*="sidebar"] [class*="channelName"] {
-  color: #c3d1dc !important;
+  color: #c2d0da !important;
 }
 
 [class*="sidebar"] [class*="modeUnread"] [class*="name"] {
-  color: #ffffff !important;
+  color: #f2f7fa !important;
 }
 
-/* Main chat */
+/* DM section labels */
+[class*="sidebar"] [class*="privateChannelsHeaderContainer"] {
+  color: var(--arch-subtle) !important;
+}
+
+/* User/account panel at the bottom of the sidebar. */
+[class*="sidebar"] [class*="panels"] {
+  background: #0e1821 !important;
+  border-top: 1px solid var(--arch-border) !important;
+}
+
+[class*="sidebar"] [class*="panels"] [class*="container"] {
+  background: transparent !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Main Discord surface                                                       */
+/* -------------------------------------------------------------------------- */
+
 [class*="chatContent"] {
-  background: #101923 !important;
+  background: var(--arch-bg) !important;
 }
 
-[class*="chat"] [class*="header"] {
-  background: rgba(15, 23, 32, .94) !important;
+[class*="chat"] > [class*="header"] {
+  background: #111b25 !important;
   border-bottom: 1px solid var(--arch-border) !important;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, .18) !important;
+  box-shadow: none !important;
 }
 
-/* Members list */
+[class*="chat"] > [class*="header"] [class*="icon"] {
+  color: #a7bac8 !important;
+}
+
+/* Main content scroller stays flat so the Discord layout remains recognizable. */
+[class*="chatContent"] [class*="scroller"] {
+  background: transparent !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Friends / Home page                                                        */
+/* -------------------------------------------------------------------------- */
+
+[class*="peopleColumn"],
+[class*="nowPlayingColumn"] {
+  background: var(--arch-bg) !important;
+}
+
+[class*="peopleColumn"] [class*="header"] {
+  background: #111b25 !important;
+  border-bottom: 1px solid var(--arch-border) !important;
+}
+
+/* Friends tabs */
+[class*="peopleColumn"] [class*="tabBar"] [class*="item"] {
+  border-radius: 3px !important;
+  transition: background 100ms ease, color 100ms ease !important;
+}
+
+[class*="peopleColumn"] [class*="tabBar"] [class*="item"]:hover {
+  background: rgba(255, 255, 255, .04) !important;
+}
+
+[class*="peopleColumn"] [class*="tabBar"] [class*="item"] [class*="selected"] {
+  background: var(--arch-blue-soft) !important;
+  color: var(--arch-blue-bright) !important;
+}
+
+/* Friends search field */
+[class*="peopleColumn"] [class*="searchBar"] {
+  background: #0c151e !important;
+  border: 1px solid var(--arch-border-strong) !important;
+  border-radius: 4px !important;
+}
+
+[class*="peopleColumn"] [class*="searchBar"]:focus-within {
+  border-color: rgba(51, 170, 221, .55) !important;
+}
+
+/* Active Now card */
+[class*="nowPlayingColumn"] [class*="itemCard"] {
+  background: var(--arch-surface) !important;
+  border: 1px solid var(--arch-border) !important;
+  border-radius: 5px !important;
+}
+
+[class*="nowPlayingColumn"] [class*="itemCard"]:hover {
+  background: var(--arch-surface-hover) !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Members                                                                   */
+/* -------------------------------------------------------------------------- */
+
 [class*="membersWrap"] {
-  background: #101923 !important;
+  background: #101a23 !important;
   border-left: 1px solid var(--arch-border) !important;
 }
 
 [class*="membersWrap"] [class*="member"] {
-  border-radius: 4px !important;
+  border-radius: 3px !important;
   margin: 1px 6px !important;
-  transition: background 100ms ease;
+  transition: background 100ms ease !important;
 }
 
 [class*="membersWrap"] [class*="member"]:hover {
-  background: rgba(23, 147, 209, .10) !important;
+  background: rgba(23, 147, 209, .08) !important;
 }
 
-/* Messages */
-[class*="message"] {
-  border-radius: 3px !important;
-  transition: background 100ms ease;
+/* -------------------------------------------------------------------------- */
+/* Messages                                                                  */
+/* -------------------------------------------------------------------------- */
+
+[class*="chatContent"] [class*="message"] {
+  border-radius: 2px !important;
+  transition: background 100ms ease !important;
 }
 
-[class*="message"]:hover {
-  background: rgba(255, 255, 255, .025) !important;
+[class*="chatContent"] [class*="message"]:hover {
+  background: rgba(255, 255, 255, .022) !important;
 }
 
-[class*="message"] [class*="username"] {
-  color: #f2f7fa !important;
+[class*="chatContent"] [class*="message"] [class*="username"] {
+  color: #f0f6fa !important;
 }
 
-[class*="message"] [class*="timestamp"] {
-  color: #708696 !important;
+[class*="chatContent"] [class*="message"] [class*="timestamp"] {
+  color: #708594 !important;
 }
 
-/* Replies, mentions, and highlighted messages */
-[class*="replying"] {
-  background: rgba(23, 147, 209, .075) !important;
+[class*="chatContent"] [class*="message"] [class*="repliedMessage"] {
+  color: #94a8b7 !important;
+}
+
+/* Reply / mention highlights */
+[class*="chatContent"] [class*="replying"] {
+  background: rgba(23, 147, 209, .065) !important;
   box-shadow: inset 2px 0 var(--arch-blue) !important;
 }
 
-[class*="mentioned"] {
-  background: rgba(23, 147, 209, .10) !important;
+[class*="chatContent"] [class*="mentioned"] {
+  background: rgba(23, 147, 209, .09) !important;
   box-shadow: inset 3px 0 var(--arch-blue-bright) !important;
 }
 
-[class*="mentioned"]::before {
+[class*="chatContent"] [class*="mentioned"]::before {
   background: var(--arch-blue-bright) !important;
 }
 
-/* Reactions */
-[class*="reaction"] {
-  background: #172430 !important;
+/* -------------------------------------------------------------------------- */
+/* Reactions                                                                  */
+/* -------------------------------------------------------------------------- */
+
+[class*="chatContent"] [class*="reaction"] {
+  background: #16232e !important;
   border: 1px solid var(--arch-border) !important;
-  border-radius: 4px !important;
+  border-radius: 3px !important;
 }
 
-[class*="reaction"]:hover {
+[class*="chatContent"] [class*="reaction"]:hover {
   background: var(--arch-blue-soft) !important;
-  border-color: rgba(23, 147, 209, .42) !important;
+  border-color: rgba(23, 147, 209, .40) !important;
 }
 
-/* Composer */
+/* -------------------------------------------------------------------------- */
+/* Composer                                                                   */
+/* -------------------------------------------------------------------------- */
+
 [class*="channelTextArea"] {
   background: #0c151e !important;
   border: 1px solid var(--arch-border-strong) !important;
-  border-radius: 5px !important;
-  box-shadow: 0 5px 18px var(--arch-shadow) !important;
+  border-radius: 4px !important;
+  box-shadow: 0 4px 14px var(--arch-shadow) !important;
 }
 
 [class*="channelTextArea"]:focus-within {
-  border-color: rgba(51, 170, 221, .68) !important;
-  box-shadow: 0 0 0 1px rgba(23, 147, 209, .18), 0 5px 18px var(--arch-shadow) !important;
+  border-color: rgba(51, 170, 221, .60) !important;
+  box-shadow: 0 0 0 1px rgba(23, 147, 209, .14), 0 4px 14px var(--arch-shadow) !important;
 }
 
 [class*="channelTextArea"] textarea {
   color: var(--arch-text) !important;
 }
 
-/* Search */
+/* -------------------------------------------------------------------------- */
+/* Search                                                                     */
+/* -------------------------------------------------------------------------- */
+
 [class*="searchBar"] {
-  background: #0d1822 !important;
+  background: #0c151e !important;
   border: 1px solid var(--arch-border) !important;
   border-radius: 4px !important;
 }
 
 [class*="searchBar"]:focus-within {
-  border-color: rgba(51, 170, 221, .58) !important;
+  border-color: rgba(51, 170, 221, .56) !important;
 }
 
-/* Buttons — scoped to actual buttons rather than every Discord element */
+[class*="searchBar"] [class*="searchIcon"] {
+  color: var(--arch-muted) !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Buttons                                                                    */
+/* -------------------------------------------------------------------------- */
+
 button[class*="lookFilled"] {
-  background: #147db3 !important;
-  border: 1px solid rgba(93, 192, 232, .22) !important;
+  background: #147fb7 !important;
+  border: 1px solid rgba(93, 192, 232, .20) !important;
   border-radius: 4px !important;
   color: #ffffff !important;
-  box-shadow: 0 2px 7px rgba(0, 0, 0, .22) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .20) !important;
 }
 
 button[class*="lookFilled"]:hover {
-  background: #1b91c9 !important;
+  background: #198dca !important;
 }
 
 button[class*="lookFilled"]:active {
-  background: #106d9d !important;
+  background: #116e9f !important;
 }
 
 button[class*="lookOutlined"] {
@@ -248,16 +391,19 @@ button[class*="lookOutlined"] {
 }
 
 button[class*="lookOutlined"]:hover {
-  border-color: rgba(51, 170, 221, .55) !important;
+  border-color: rgba(51, 170, 221, .50) !important;
   background: var(--arch-blue-soft) !important;
 }
 
-/* Menus and context menus */
+/* -------------------------------------------------------------------------- */
+/* Menus / popouts / modals                                                   */
+/* -------------------------------------------------------------------------- */
+
 [class*="menu"] {
   background: #172430 !important;
   border: 1px solid var(--arch-border-strong) !important;
   border-radius: 5px !important;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, .48) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .46) !important;
 }
 
 [class*="menu"] [role="menuitem"] {
@@ -272,120 +418,119 @@ button[class*="lookOutlined"]:hover {
   background: var(--arch-blue-hover) !important;
 }
 
-/* Popouts */
 [class*="popout"] {
   background: #172430 !important;
   border: 1px solid var(--arch-border-strong) !important;
-  border-radius: 6px !important;
+  border-radius: 5px !important;
   box-shadow: 0 14px 34px rgba(0, 0, 0, .46) !important;
 }
 
-/* Modals */
 [class*="modal"] {
-  background: #14212c !important;
+  background: #14222d !important;
   border: 1px solid var(--arch-border-strong) !important;
-  border-radius: 7px !important;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, .55) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, .54) !important;
 }
 
 [class*="backdrop"] {
   background: rgba(3, 8, 12, .68) !important;
 }
 
-/* Tooltips */
 [class*="tooltip"] {
-  background: #0b131c !important;
+  background: #0b131b !important;
   color: #f1f7fb !important;
   border: 1px solid var(--arch-border-strong) !important;
   border-radius: 3px !important;
   box-shadow: 0 7px 18px rgba(0, 0, 0, .42) !important;
 }
 
-/* Embeds */
+/* -------------------------------------------------------------------------- */
+/* Embeds / attachments / code                                                */
+/* -------------------------------------------------------------------------- */
+
 [class*="embedFull"] {
-  background: #14212c !important;
+  background: #14222d !important;
   border-left: 3px solid var(--arch-blue) !important;
-  border-radius: 4px !important;
+  border-radius: 3px !important;
 }
 
-/* Attachments */
 [class*="attachment"],
 [class*="fileWrapper"],
 [class*="wrapperAudio"] {
-  background: #14212c !important;
+  background: #14222d !important;
   border: 1px solid var(--arch-border) !important;
-  border-radius: 5px !important;
+  border-radius: 4px !important;
 }
 
-/* Code / terminal feel */
 code,
 [class*="codeBlock"] {
   background: var(--arch-code) !important;
-  border: 1px solid rgba(141, 180, 205, .12) !important;
+  border: 1px solid rgba(164, 194, 214, .11) !important;
   border-radius: 3px !important;
   font-family: "Cascadia Mono", "DejaVu Sans Mono", monospace !important;
 }
 
-/* New-message and mention bars */
+/* Terminal-like inline code without changing normal Discord text. */
+code {
+  color: #b8d8e9 !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* New-message bars / mentions / badges                                       */
+/* -------------------------------------------------------------------------- */
+
 [class*="newMessagesBar"] {
-  background: #147db3 !important;
+  background: #147fb7 !important;
   color: #ffffff !important;
-  border: 1px solid rgba(93, 192, 232, .28) !important;
+  border: 1px solid rgba(93, 192, 232, .25) !important;
   border-radius: 4px !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .28) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .25) !important;
 }
 
 [class*="mention"] {
-  color: #e8f8ff !important;
+  color: #e9f8ff !important;
   background: var(--arch-blue-soft) !important;
 }
 
-/* Account/user panel */
-[class*="panels"] {
-  background: #0e1821 !important;
-  border-top: 1px solid var(--arch-border) !important;
-}
-
-/* Badges */
 [class*="numberBadge"],
 [class*="mentionBadge"] {
   background: var(--arch-blue) !important;
   color: #ffffff !important;
 }
 
-/* Dividers */
+/* -------------------------------------------------------------------------- */
+/* Dividers / scrollbars / focus / selection                                   */
+/* -------------------------------------------------------------------------- */
+
 [class*="divider"] {
   border-color: var(--arch-border) !important;
 }
 
-/* Scrollbars — compact technical look */
 ::-webkit-scrollbar {
   width: 9px !important;
   height: 9px !important;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0b131c !important;
+  background: #0b131b !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #304657 !important;
-  border: 2px solid #0b131c !important;
+  background: #304655 !important;
+  border: 2px solid #0b131b !important;
   border-radius: 2px !important;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #416176 !important;
+  background: #3e5d70 !important;
 }
 
-/* Keyboard focus */
 *:focus-visible {
   outline: 2px solid var(--arch-blue-bright) !important;
   outline-offset: 2px !important;
 }
 
-/* Selection */
 ::selection {
-  background: rgba(23, 147, 209, .48) !important;
+  background: rgba(23, 147, 209, .42) !important;
   color: #ffffff !important;
 }
