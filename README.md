@@ -7,11 +7,13 @@ A collection of custom CSS themes for Equicord and Vencord Discord clients.
 | Theme | Style |
 |---|---|
 | [Aurora Glass](themes/aurora-glass.css) | Frosted glass, cyan/violet aurora glow |
-| [Aero Reborn](themes/aero-reborn.css) | Glossy blue glass inspired by classic desktop UI |
+| [Aero Reborn](themes/aero-reborn.css) | Bright classic Aero glass, blue reflections, glossy chrome |
 | [Cyberpunk Night](themes/cyberpunk-night.css) | Neon cyan/pink cyberpunk grid |
 | [Forest Terminal](themes/forest-terminal.css) | Dark green terminal / hacker aesthetic |
 | [GRUB Linux](themes/grub-linux.css) | Monochrome GRUB boot menu / Linux console aesthetic |
 | [Vista Aero](themes/vista-aero.css) | Windows Vista Aero glass, blue chrome, and glossy highlights |
+| [Ubuntu Linux](themes/ubuntu-linux.css) | Ubuntu aubergine, orange accents, GNOME-inspired surfaces |
+| [Debian Linux](themes/debian-linux.css) | Debian red, graphite panels, and technical desktop styling |
 
 ## Install
 
