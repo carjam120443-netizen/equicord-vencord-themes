@@ -1,0 +1,167 @@
+/*
+ * GRUB Linux
+ * A Discord theme inspired by classic GRUB boot menus and Linux consoles.
+ */
+
+:root {
+  --grub-bg: #101010;
+  --grub-panel: #181818;
+  --grub-panel-2: #222222;
+  --grub-border: #666666;
+  --grub-text: #f2f2f2;
+  --grub-muted: #aaaaaa;
+  --grub-accent: #e6e6e6;
+  --grub-selection: #d7d7d7;
+  --grub-selection-text: #111111;
+}
+
+/* Overall Discord surface */
+.theme-dark,
+.theme-darker,
+.theme-midnight {
+  --background-primary: var(--grub-bg);
+  --background-secondary: #151515;
+  --background-secondary-alt: #1c1c1c;
+  --background-tertiary: #0b0b0b;
+  --background-floating: var(--grub-panel);
+  --channeltextarea-background: #0d0d0d;
+  --text-normal: var(--grub-text);
+  --text-muted: var(--grub-muted);
+  --header-primary: #ffffff;
+  --header-secondary: #bbbbbb;
+}
+
+body {
+  background: #0b0b0b !important;
+  font-family: "DejaVu Sans Mono", "Consolas", monospace !important;
+}
+
+/* Make major panels feel like a terminal */
+[class*="sidebar"],
+[class*="guilds"],
+[class*="membersWrap"],
+[class*="chatContent"],
+[class*="titleBar"],
+[class*="panels"] {
+  background: var(--grub-bg) !important;
+  border-color: var(--grub-border) !important;
+}
+
+/* GRUB-style menu separators */
+[class*="sidebar"] {
+  border-right: 1px solid var(--grub-border) !important;
+}
+
+[class*="chatContent"] {
+  border-left: 1px solid #303030 !important;
+}
+
+/* Channels / server navigation */
+[class*="wrapper"] [class*="itemSelected"],
+[class*="modeSelected"],
+[class*="modeUnreadImportant"] {
+  background: var(--grub-selection) !important;
+  color: var(--grub-selection-text) !important;
+  border-radius: 0 !important;
+  box-shadow: inset 0 0 0 1px #ffffff !important;
+}
+
+[class*="modeSelected"] [class*="name"],
+[class*="modeSelected"] [class*="icon"],
+[class*="itemSelected"] {
+  color: var(--grub-selection-text) !important;
+}
+
+[class*="modeDefault"]:hover,
+[class*="clickable"]:hover {
+  background: #292929 !important;
+  border-radius: 0 !important;
+}
+
+/* Server icons */
+[class*="guilds"] [class*="wrapper"] > * {
+  border-radius: 2px !important;
+}
+
+/* Header */
+[class*="title"] {
+  background: #141414 !important;
+  box-shadow: inset 0 -1px 0 var(--grub-border) !important;
+}
+
+/* Messages */
+[class*="message"]:hover {
+  background: #1c1c1c !important;
+}
+
+[class*="message"] [class*="username"] {
+  color: #ffffff !important;
+}
+
+/* Text input: shell prompt */
+[class*="channelTextArea"] {
+  background: #090909 !important;
+  border: 1px solid var(--grub-border) !important;
+  border-radius: 0 !important;
+  box-shadow: inset 0 0 0 1px #000000 !important;
+}
+
+[class*="channelTextArea"] textarea {
+  font-family: "DejaVu Sans Mono", "Consolas", monospace !important;
+}
+
+/* Buttons */
+button {
+  border-radius: 0 !important;
+}
+
+button:hover {
+  filter: brightness(1.15);
+}
+
+/* Search / inputs */
+input,
+textarea {
+  background: #0d0d0d !important;
+  border: 1px solid #555 !important;
+  border-radius: 0 !important;
+  color: #eeeeee !important;
+}
+
+/* Mentions / new-message bar */
+[class*="mention"],
+[class*="newMessagesBar"] {
+  background: #d7d7d7 !important;
+  color: #111111 !important;
+  border-radius: 0 !important;
+}
+
+/* Code blocks */
+code,
+[class*="codeBlock"] {
+  background: #050505 !important;
+  border: 1px solid #444 !important;
+  border-radius: 0 !important;
+  font-family: "DejaVu Sans Mono", "Consolas", monospace !important;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 10px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0b0b !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555 !important;
+  border: 2px solid #0b0b0b !important;
+  border-radius: 0 !important;
+}
+
+/* Selection */
+::selection {
+  background: #dddddd !important;
+  color: #000000 !important;
+}
