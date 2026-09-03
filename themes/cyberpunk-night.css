@@ -1,0 +1,58 @@
+/* Cyberpunk Night — Equicord / Vencord theme */
+/* Dark neon UI with cyan and hot-pink highlights. */
+
+:root {
+  --cp-bg: #05060b;
+  --cp-panel: rgba(12, 13, 23, .90);
+  --cp-cyan: #00e5ff;
+  --cp-pink: #ff2bd6;
+  --cp-purple: #7c3aed;
+  --cp-grid: rgba(0,229,255,.055);
+}
+
+body, #app-mount {
+  background-color: var(--cp-bg) !important;
+  background-image: linear-gradient(var(--cp-grid) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--cp-grid) 1px, transparent 1px) !important;
+  background-size: 32px 32px !important;
+}
+
+[class*="sidebar"], [class*="panels"], [class*="chat"], [class*="membersWrap"] {
+  background: var(--cp-panel) !important;
+  border-color: rgba(0,229,255,.13) !important;
+}
+
+[class*="channel"]:hover {
+  background: rgba(0,229,255,.07) !important;
+}
+
+[class*="modeSelected"] {
+  background: linear-gradient(90deg, rgba(0,229,255,.14), rgba(255,43,214,.08)) !important;
+  box-shadow: inset 3px 0 var(--cp-cyan), 0 0 18px rgba(0,229,255,.06);
+}
+
+[class*="mention"], [class*="newMessagesBar"] {
+  background: rgba(255,43,214,.14) !important;
+  border-color: var(--cp-pink) !important;
+}
+
+button[class*="lookFilled"] {
+  background: linear-gradient(135deg, var(--cp-cyan), var(--cp-purple)) !important;
+  color: #03050a !important;
+  font-weight: 700;
+}
+
+textarea, input, [class*="channelTextArea"] {
+  background: rgba(3,5,10,.82) !important;
+  border: 1px solid rgba(0,229,255,.22) !important;
+  box-shadow: 0 0 0 1px rgba(255,43,214,.035), inset 0 0 18px rgba(0,229,255,.035);
+}
+
+[class*="message"]:hover {
+  background: rgba(0,229,255,.025) !important;
+}
+
+::selection {
+  background: var(--cp-pink);
+  color: #05060b;
+}
