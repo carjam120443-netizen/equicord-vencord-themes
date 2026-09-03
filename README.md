@@ -16,6 +16,7 @@ A collection of custom CSS themes for Equicord and Vencord Discord clients.
 | [Debian Linux](themes/debian-linux.css) | Debian red, graphite panels, and technical desktop styling |
 | [Arch Linux](themes/arch-linux.css) | Arch blue, deep navy surfaces, and a clean technical aesthetic |
 | [Windows 11](themes/windows-11.css) | Fluent/Mica surfaces, rounded controls, and Windows 11 blue accents |
+| [macOS](themes/macos.css) | Modern macOS-inspired vibrancy, graphite surfaces, rounded controls, and blue accents |
 
 ## Install
 
